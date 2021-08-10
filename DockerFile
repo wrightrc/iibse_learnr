@@ -1,0 +1,10 @@
+FROM rocker/shiny
+
+RUN install2.r learnr \
+               remotes
+
+RUN R -e 'remotes::install_github("rundel/learnrhash")'
+
+COPY mountpoints/apps/ /srv/shiny-server/
+
+CMD ["/usr/bin/shiny-server.sh"]

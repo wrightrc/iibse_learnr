@@ -17,22 +17,6 @@
 
    <script type="text/javascript">
 
-  // set initial size
-$( document ).ready(function() {
-    SetIframeSize();
-});
-
-// resize on window resize
-$(window).on('resize', function(){
-      SetIframeSize();
-});
-
-function SetIframeSize(){
-    $("#external").width($(window).width() - 18);
-    $("#external").height($(window).height() - 35);
-}
-
-
 // Once page is loaded, override and disable popover "scroll into view"
   $(document).ready(function() {
     window.tutorial.scrollIntoView = function() {}
@@ -524,21 +508,21 @@ learnr:::store_exercise_setup_chunk("__setup__", c("knitr::opts_chunk$set(echo =
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "conv-error-1", 
     question = structure("What units would result if we accidentally flipped the final conversion factor, multiplying by [1 hr/60 min] instead of [60 min/1 hr], in the above calculation?", html = TRUE, class = c("html", 
-    "character")), answers = list(structure(list(id = "lnr_ans_ec3e24b", 
+    "character")), answers = list(structure(list(id = "lnr_ans_6f4d121", 
         option = "$\\text{m}^2 \\cdot \\text{hr}/\\text{min}^2$", 
         value = "$\\text{m}^2 \\cdot \\text{hr}/\\text{min}^2$", 
         label = structure("\\(\\text{m}^2 \\cdot \\text{hr}/\\text{min}^2\\)", html = TRUE, class = c("html", 
         "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_266e4e", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_4ccd9c7", 
         option = "$\\text{m} \\cdot \\text{hr}/\\text{min}^2$", 
         value = "$\\text{m} \\cdot \\text{hr}/\\text{min}^2$", 
         label = structure("\\(\\text{m} \\cdot \\text{hr}/\\text{min}^2\\)", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_ef26615", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_1cfb63d", 
         option = "$\\text{m}^2 \\cdot \\text{hr}$", value = "$\\text{m}^2 \\cdot \\text{hr}$", 
         label = structure("\\(\\text{m}^2 \\cdot \\text{hr}\\)", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_5005151", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_58d3d3", 
         option = "$\\text{m}^2 \\cdot \\text{hr} \\cdot \\text{min}$", 
         value = "$\\text{m}^2 \\cdot \\text{hr} \\cdot \\text{min}$", 
         label = structure("\\(\\text{m}^2 \\cdot \\text{hr} \\cdot \\text{min}\\)", html = TRUE, class = c("html", 
@@ -552,25 +536,25 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
         answer = "conv-error-1-answer", question = "conv-error-1"), 
     loading = structure("<strong>Loading:<\u002fstrong> \nWhat units would result if we accidentally flipped the final conversion factor, multiplying by [1 hr/60 min] instead of [60 min/1 hr], in the above calculation?\n<br/><br/><br/>", html = TRUE, class = c("html", 
     "character")), random_answer_order = TRUE, allow_retry = TRUE, 
-    seed = 408293048.809874, options = list()), class = c("learnr_radio", 
+    seed = 63745425.4703162, options = list()), class = c("learnr_radio", 
 "tutorial_question")))
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_checkbox", label = "conv-error-2", 
     question = structure("How would you know this conversion was incorrect?", html = TRUE, class = c("html", 
-    "character")), answers = list(structure(list(id = "lnr_ans_ce907fd", 
+    "character")), answers = list(structure(list(id = "lnr_ans_24a61e", 
         option = "There are multiple time units left", value = "There are multiple time units left", 
         label = structure("There are multiple time units left", html = TRUE, class = c("html", 
         "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_3dc44bd", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_8be2c6", 
         option = "I just know", value = "I just know", label = structure("I just know", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_2edb1c", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_8b20744", 
         option = "The units don't cancel out", value = "The units don't cancel out", 
         label = structure("The units don&#39;t cancel out", html = TRUE, class = c("html", 
         "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_67f93ff", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_192199a", 
         option = "You don't get the correct final units", value = "You don't get the correct final units", 
         label = structure("You don&#39;t get the correct final units", html = TRUE, class = c("html", 
         "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", 
@@ -583,52 +567,52 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_checkbox", lab
         answer = "conv-error-2-answer", question = "conv-error-2"), 
     loading = structure("<strong>Loading:<\u002fstrong> \nHow would you know this conversion was incorrect?\n<br/><br/><br/>", html = TRUE, class = c("html", 
     "character")), random_answer_order = TRUE, allow_retry = TRUE, 
-    seed = 30673556.4857165, options = list()), class = c("learnr_checkbox", 
+    seed = 1789706121.1666, options = list()), class = c("learnr_checkbox", 
 "tutorial_question")))
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "text_block", label = "unit-conv-ex-1", 
     question = structure("Describe how would you convert an acceleration of \\(\\mathbf{1\\text{ cm/s}^2}\\) to the equivalent measure in \\(\\mathbf{\\text{km}/\\text{yr}^2?}\\)", html = TRUE, class = c("html", 
-    "character")), answers = list(structure(list(id = "lnr_ans_249cd20", 
+    "character")), answers = list(structure(list(id = "lnr_ans_748e6be", 
         option = "", value = "", label = structure("", html = TRUE, class = c("html", 
         "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", 
     "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
     "character")), try_again = structure("<span data-i18n=\"button.questiontryagain\">Try Again<\u002fspan>", html = TRUE, class = c("html", 
-    "character"))), messages = list(correct = structure("You aced it! Here&#39;s our answer:", html = TRUE, class = c("html", 
+    "character"))), messages = list(correct = structure("Resplendent! Here&#39;s our answer:", html = TRUE, class = c("html", 
     "character")), try_again = structure("Here&#39;s our answer:", html = TRUE, class = c("html", 
     "character")), incorrect = structure("Incorrect", html = TRUE, class = c("html", 
     "character")), message = structure("You need to use multiple conversion factors to cancel each of the units. So \\(100 \\text{ cm} = 1 \\text{ m}\\) and \\(1000 \\text{ m} = 1 \\text{ km}\\) for the length units and \\(60 \\text{ s} = 1 \\text{ min}\\), \\(60 \\text{ min} =  1 \\text{ hr}\\), \\(1 \\text{ day} = 24 \\text{ hr}\\), and \\(365 \\text{ days} = 1 \\text{ yr}\\).", html = TRUE, class = c("html", 
     "character")), post_message = NULL), ids = list(answer = "unit-conv-ex-1-answer", 
         question = "unit-conv-ex-1"), loading = structure("<strong>Loading:<\u002fstrong> \nDescribe how would you convert an acceleration of \\(\\mathbf{1\\text{ cm/s}^2}\\) to the equivalent measure in \\(\\mathbf{\\text{km}/\\text{yr}^2?}\\)\n<br/><br/><br/>", html = TRUE, class = c("html", 
     "character")), random_answer_order = FALSE, allow_retry = TRUE, 
-    seed = 895713542.082901, options = list()), class = c("text_block", 
+    seed = 1002911602.53298, options = list()), class = c("text_block", 
 "tutorial_question")))
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "text_block", label = "unit-conv-ex-2", 
     question = structure("How do you deal with the time being squared?", html = TRUE, class = c("html", 
-    "character")), answers = list(structure(list(id = "lnr_ans_7854c47", 
+    "character")), answers = list(structure(list(id = "lnr_ans_7222b8d", 
         option = "", value = "", label = structure("", html = TRUE, class = c("html", 
         "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", 
     "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
     "character")), try_again = structure("<span data-i18n=\"button.questiontryagain\">Try Again<\u002fspan>", html = TRUE, class = c("html", 
-    "character"))), messages = list(correct = structure("Nice job! Here&#39;s our answer:", html = TRUE, class = c("html", 
+    "character"))), messages = list(correct = structure("Super job! Here&#39;s our answer:", html = TRUE, class = c("html", 
     "character")), try_again = structure("Here&#39;s our answer:", html = TRUE, class = c("html", 
     "character")), incorrect = structure("Incorrect", html = TRUE, class = c("html", 
     "character")), message = structure("Since time units are squared you simply need to square all of the conversion factors such that the units cancel and magnitudes are correctly scaled.", html = TRUE, class = c("html", 
     "character")), post_message = NULL), ids = list(answer = "unit-conv-ex-2-answer", 
         question = "unit-conv-ex-2"), loading = structure("<strong>Loading:<\u002fstrong> \nHow do you deal with the time being squared?\n<br/><br/><br/>", html = TRUE, class = c("html", 
     "character")), random_answer_order = FALSE, allow_retry = TRUE, 
-    seed = 833831481.111717, options = list()), class = c("text_block", 
+    seed = 1332948760.8793, options = list()), class = c("text_block", 
 "tutorial_question")))
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", label = "numeric-answer", 
     question = structure("What is \\(\\mathbf{60.0\\text{ m}^3/\\text{yr}}\\) in \\(\\mathbf{\\text{ gallons/day}}\\)", html = TRUE, class = c("html", 
-    "character")), answers = list(structure(list(id = "lnr_ans_4e491b0", 
+    "character")), answers = list(structure(list(id = "lnr_ans_c5a7616", 
         option = "43.4", value = 43.4, label = structure("43.4", html = TRUE, class = c("html", 
         "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", 
     "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
@@ -640,7 +624,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", labe
         answer = "numeric-answer-answer", question = "numeric-answer"), 
     loading = structure("<strong>Loading:<\u002fstrong> \nWhat is \\(\\mathbf{60.0\\text{ m}^3/\\text{yr}}\\) in \\(\\mathbf{\\text{ gallons/day}}\\)\n<br/><br/><br/>", html = TRUE, class = c("html", 
     "character")), random_answer_order = FALSE, allow_retry = TRUE, 
-    seed = 1016947088.02645, options = list(min = NA, max = NA, 
+    seed = 57533207.973209, options = list(min = NA, max = NA, 
         step = NA)), class = c("learnr_numeric", "tutorial_question"
 )))
 </script>
@@ -648,7 +632,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", labe
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "sortable_rank", label = "sort-algorithm", 
     question = structure("Sort the steps in the engineering calculation algorithm into the correct order", html = TRUE, class = c("html", 
-    "character")), answers = list(structure(list(id = "lnr_ans_cf481d4", 
+    "character")), answers = list(structure(list(id = "lnr_ans_56fbebe", 
         option = c("Diagram", "Balances", "Degrees of freedom (DoF)", 
         "Strategy", "Solve", "Calculate", "Check"), value = c("Diagram", 
         "Balances", "Degrees of freedom (DoF)", "Strategy", "Solve", 
@@ -663,7 +647,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "sortable_rank", label
         answer = "sort-algorithm-answer", question = "sort-algorithm"), 
     loading = structure("<strong>Loading:<\u002fstrong> \nSort the steps in the engineering calculation algorithm into the correct order\n<br/><br/><br/>", html = TRUE, class = c("html", 
     "character")), random_answer_order = TRUE, allow_retry = TRUE, 
-    seed = 984240063.041677, options = structure(list(), class = "sortable_options")), class = c("sortable_rank", 
+    seed = 1077168293.4984, options = structure(list(), class = "sortable_options")), class = c("sortable_rank", 
 "tutorial_question")))
 </script>
  
