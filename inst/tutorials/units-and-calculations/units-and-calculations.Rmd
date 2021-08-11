@@ -19,8 +19,10 @@ knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
 
 
 library(learnr)
+library(sortable)
 library(learnrhash)
 library(interactiveBSE)
+source("../custom_learnr.R")
 
 #### Notes ####
 # This takes about 120 min, typically breaking for 5-10 min before "Calculations"
@@ -41,6 +43,58 @@ At the end of this module you should be able to:
 
 You will practice the skills we introduce here through every class you take in biological systems engineering. It is always a good idea to revisit this section, particularly the algorithm for engineering calculations, regularly throughout your career. 
 
+## Tools of the trade
+
+### Scientific Notation
+
+In engineering biological systems we deal with both extremely large systems like watersheds and extremely small systems like single cells. To express quantities across such wide scales and convert between them we will often make use of scientific notation. In scientific notation we will express the value of the measurement as two digits between 0.1 and 10 and then express the "order of magnitude" of the measurement as a power of 10, for example:  
+$$420,000 = 4.2 \times 10^5 = 0.42 \times 10^6$$  
+$$0.00013 = 1.3 \times 10^{-4} = 0.13 \times 10^{-5}$$  
+The power of ten and value can easily be converted by moving the decimal left or right and adjusting the exponent plus or minus one, respectively. This can allow the powers of ten in a calculation to be easily added and subtracted, in what is known as an "order of magnitude estimation" or "back of the envelop" calculation. 
+
+### Significant Figures
+
+Scientific notation also allows us to easily express the precision in our measurements, and values calculated from them, using significant figures. *The significant figures of a measurement are the number digits that we are confident in our measurement/calculation of. No measurement or calculation should be considered exact!* We always need to consider how confident we are in our numbers. Significant figures allows us to present the level of uncertainty in the way we write numbers. 
+
+The following are rules for finding the number of significant figures in a measurement.
+
+- For measurements without a decimal point, the significant figures are the digits between the first and last nonzero digits  
+  - **23**00 has 2 significant figures, in scientific notation $2.3 \times 10^4$  
+  - **2303** has 4 significant figures or $2.303 \times 10^4$  
+- For measurements with a decimal point but no digits to the right of the decimal the significant figures are the digits to the left of the decimal  
+  - **12**,**000**. has 5 significant figures, or $1.2000 \times 10^5$  
+  - **12**. has 2 significant figures with or without the decimal  
+- For measurements with a decimal and digits to the right of the decimal, the significant figures are the digits between the first nonzero digit and the last digit on the right  
+  - 0.0000**67** has 2 significant figures, or $6.7 \times 10^{-5}$  
+  - **1.200** has 4 significant figures  
+  
+Scientific notation allows us to *usually* just count the digits in the value to find the number of significant figures (make sure there is not a zero to the left of the decimal).
+
+
+```{r sig-figs, echo=FALSE}
+quiz(caption = "How many significant figures are in the following measurements",
+  question_numeric(text = "$2000 \\text{ kg}$", 
+                   answer(1, correct = TRUE)),
+  question_numeric(text = "$2000. \\text{ kg}$", 
+                   answer(4, correct = TRUE)),
+  question_numeric(text = "$2000.0 \\text{ kg}$", 
+                   answer(5, correct = TRUE)),
+  question_numeric(text = "$0.002 \\text{ kg}$", 
+                   answer(1, correct = TRUE)),
+  question_numeric(text = "$0.0020 \\text{ kg}$", 
+                   answer(2, correct = TRUE))
+)
+```
+
+
+#### How do we carry significant figures through our calculations?
+
+- When multiplying or dividing quantities round the result to the lowest number of significant figures of the quantities. **Do not count the sig figs in conversion factors, only the given quantities!** You can assume conversion factors are known with infinite precision.  
+
+- When adding or subtracting quantities we need to pay attention to the last (rightmost) significant figure in the quantities and keep however many significant figures in the final answer as are necessary to maintain the least number of significant figures in the initial quantities. For example, if we are adding 2 meters to 50 kilometers, our result is simply 50 kilometers. 50 kilometers has only 1 significant figure, indicating that we do not know precisely that it is 50.0 kilometers but somewhere between 45 and 54 kilometers, so adding 2 meters to this imprecise measurement is silly.  
+
+**Significant figures can be a big deal when you are predicting the amount of water that will be available for a city or the amount of a vaccine that can be produced, pay attention to them.** As engineers we are often making predictions about a solution we are designing. These predictions are only as good as the data/measurements we use to make them. Using appropriate significant figures in our measurements and calculations is one way we can express the uncertainty in our predictions. 
+
 ## Unit conversions
 
 Oftentimes as engineers we are putting together parts from different manufacturers and data from different sources in order design solutions. Inevitably these sources will not use the same units and we will need to convert them to equivalent units. Also within our calculations, we need to accurately convert units in order to solve for derived quantities and determine their units. Some derived quantities critical to engineering analysis are dimensionless and we need to ensure that we have appropriately canceled all units in their calculation 
@@ -51,7 +105,7 @@ In performing these calculations we must follow these rules:
 - *The numerical values and their units are combined by multiplication or division*  
 - *Only unitless values may be used within mathematical functions such as $\sin$, $\log$, or as exponents.*  
 
-How do we convert units?
+### How do we convert units?
 
 Using conversion factors. Conversion factors are equivalencies between different units, for example 10 mm = 1 cm. To convert from one unit to another we multiply by this conversion factor, because it is an equivalency, it is just like multiplying by 1. 
 
@@ -82,6 +136,8 @@ $$
       \text{s}    & \text{min}    & \text{hr}
     \end{array} = 3600 \text{ m}^2/\text{hr}
 $$ 
+
+### Conversion factors are self-correcting
 
 ```{r conv-error, echo=FALSE}
 quiz(
@@ -125,7 +181,7 @@ Convert an acceleration of $1\text{ cm/s}^2$ to $\text{km}/\text{yr}^2$.
 ```{r unit-conv-ex, echo=FALSE}
 quiz(caption = "",
   ### 1
-  question(
+  question_text_block(
     sprintf(
       "Describe how would you convert an acceleration of $\\mathbf{1\\text{ cm/s}^2}$ to the equivalent measure in $\\mathbf{\\text{km}/\\text{yr}^2?}$"
     ),
@@ -136,11 +192,10 @@ quiz(caption = "",
     allow_retry = TRUE,
     correct = paste(learnr::random_praise(), 
                     "Here's our answer:"),
-    type = "text_block",
     try_again = "Here's our answer:"
   ),
   #### 3
-  question(
+  question_text_block(
     "How do you deal with the time being squared?",
     message = sprintf(
       "Since time units are squared you simply need to square all of the conversion factors such that the units cancel and magnitudes are correctly scaled."
@@ -149,7 +204,6 @@ quiz(caption = "",
     allow_retry = TRUE,
     correct = paste(learnr::random_praise(), 
                     "Here's our answer:"),
-    type = "text_block",
     try_again = "Here's our answer:"
   )
 )
@@ -179,7 +233,9 @@ $$
     \end{array} = 1\times10^{10} \text{ km}/\text{yr}^2
 $$
 
-```{r}
+Finally we can plug this into our calculator (R is used here to also adjust sig figs).
+
+```{r, echo=TRUE}
 signif(60^2*60^2*24^2*365^2/100/1000, 1)
 ```
 
@@ -192,7 +248,14 @@ signif(60^2*60^2*24^2*365^2/100/1000, 1)
       "What is $\\mathbf{60.0\\text{ m}^3/\\text{yr}}$ in $\\mathbf{\\text{ gallons/day}}$"
     ),
     answer(43.4, correct = TRUE),
-    allow_retry = TRUE
+    answer(43, correct = FALSE, 
+           message = "Double check your sig figs"), 
+    answer(43.42, correct = FALSE, 
+           message = "Double check your sig figs"),     
+    answer(43.417, correct = FALSE, 
+           message = "Double check your sig figs"),
+    allow_retry = TRUE, 
+    try_again = "The answer should be close to 43."
   )
 ```
 
@@ -232,66 +295,15 @@ sortable::question_rank(
 
 ```
 
-### Scientific Notation
-
-In engineering biological systems we deal with both extremely large systems like watersheds and extremely small systems like single cells. To express quantities across such wide scales and convert between them we will often make use of scientific notation. In scientific notation we will express the value of the measurement as two digits between 0.1 and 10 and then express the "order of magnitude" of the measurement as a power of 10, for example:  
-$$420,000 = 4.2 \times 10^5 = 0.42 \times 10^6$$  
-$$0.00013 = 1.3 \times 10^{-4} = 0.13 \times 10^{-5}$$  
-The power of ten and value can easily be converted by moving the decimal left or right and adjusting the exponent plus or minus one, respectively. This can allow the powers of ten in a calculation to be easily added and subtracted, in what is know as an "order of magnitude estimation" or "back of the envelop" calculation. 
-
-### Significant Figures
-
-Scientific notation also allows us to easily express the precision in our measurements, and values calculated from them, using significant figures. *The significant figures of a measurement are the number digits that we are confident in our measurement/calculation of. No measurement or calculation should be considered exact!* We always need to consider how confident we are in our numbers. Significant figures allows us to present the level of uncertainty in the way we write numbers. 
-
-The following are rules for finding the number of significant figures in a measurement.
-
-- For measurements without a decimal point, the significant figures are the digits between the first and last nonzero digits  
-  - **23**00 has 2 significant figures, in scientific notation $2.3 \times 10^4$  
-  - **2303** has 4 significant figures or $2.303 \times 10^4$  
-- For measurements with a decimal point but no digits to the right of the decimal the significant figures are the digits to the left of the decimal  
-  - **12**,**000**. has 5 significant figures, or $1.2000 \times 10^5$  
-  - **12**. has 2 significant figures with or without the decimal  
-- For measurements with a decimal and digits to the right of the decimal, the significant figures are the digits between the first nonzero digit and the last digit on the right  
-  - 0.0000**67** has 2 significant figures, or $6.7 \times 10^{-5}$  
-  - **1.200** has 4 significant figures  
-  
-Scientific notation allows us to *usually* just count the digits in the value to find the number of significant figures (make sure there is not a zero to the left of the decimal).
-
-
-```{r sig-figs, echo=FALSE}
-
-```
-
->
-##### Question
-How many significant figures are in the following measurements:  
-A. $2000 \text{ kg}$  
-B. $2000. \text{ kg}$  
-C. $2000.0 \text{ kg}$  
-D. $0.002 \text{ kg}$  
-E. $0.0020 \text{ kg}$  
->
->##### Solution
->
->Answerlist  
->* A. 1 
->* B. 4 
->* C. 5 
->* D. 1 
->* E. 2 
-
-
-#### How do we carry significant figures through our calculations?
-
-- When multiplying or dividing quantities round the result to the lowest number of significant figures of the quantities. **Do not count the sig figs in conversion factors, only the given quantities!** You can assume conversion factors are known with infinite precision.  
-
-- When adding or subtracting quantities we need to pay attention to the last (rightmost) significant figure in the quantities and keep however many significant figures in the final answer as are necessary to maintain the least number of significant figures in the initial quantities. For example, if we are adding 2 meters to 50 kilometers, our result is simply 50 kilometers. 50 kilometers has only 1 significant figure, indicating that we do not know precisely that it is 50.0 kilometers but somewhere between 45 and 54 kilometers, so adding 2 meters to this imprecise measurement is silly.  
-
-**Significant figures can be a big deal when you are predicting the amount of water that will be available for a city or the amount of a vaccine that can be produced, pay attention to them.** As engineers we are often making predictions about a solution we are designing. These predictions are only as good as the data/measurements we use to make them. Using appropriate significant figures in our measurements and calculations is one way we can express the uncertainty in our predictions. 
 
 ## Putting it all together
 
 Using a single dimensional equation, estimate the number of steps it would take for you to walk from  Earth to Alpha Centauri, a distance of 4.3 light years, assuming your steps are 2.5 ft on average. The speed of light is $1.86 \times 10^5$ miles/s.  
+
+```{r}
+
+```
+
 
 > ##### Question
 >

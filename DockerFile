@@ -4,7 +4,8 @@ RUN install2.r learnr \
                remotes
 
 RUN R -e 'remotes::install_github("rundel/learnrhash")'
+RUN R -e 'remotes::install_github("wrightrc/interactiveBSE")'
 
-COPY mountpoints/apps/ /srv/shiny-server/
+COPY inst/tutorials /srv/shiny-server/
 
 CMD ["/usr/bin/shiny-server.sh"]
