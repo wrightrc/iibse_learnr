@@ -10,7 +10,7 @@ output:
     theme: cerulean
     ace_theme: chrome
     includes:
-      in_header: test1.html
+      in_header: ../test1.html
 runtime: shiny_prerendered
 ---
 
@@ -19,7 +19,8 @@ knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
 
 
 library(learnr)
-source("custom_learnr.R")
+library(learnrhash)
+library(interactiveBSE)
 
 #### Notes ####
 # This takes about 120 min, typically breaking for 5-10 min before "Calculations"
