@@ -10,7 +10,7 @@ output:
     theme: cerulean
     ace_theme: chrome
     includes:
-      in_header: ../test1.html
+      in_header: test1.html
 runtime: shiny_prerendered
 ---
 
@@ -21,8 +21,9 @@ knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
 library(learnr)
 library(sortable)
 library(learnrhash)
-library(interactiveBSE)
-source("../custom_learnr.R")
+#library(interactiveBSE)
+#source("../custom_learnr.R")
+source("custom_learnr.R")
 
 #### Notes ####
 # This takes about 120 min, typically breaking for 5-10 min before "Calculations"
@@ -241,7 +242,7 @@ signif(60^2*60^2*24^2*365^2/100/1000, 1)
 
 ### Your turn
 
-```{r numeric-answer, echo=FALSE}
+```{r units-numeric-answer, echo=FALSE}
   #### 2
   question_numeric(
     sprintf(
@@ -277,7 +278,6 @@ In performing engineering calculations, it is generally best to proceed as follo
 
 **Throughout this process it is enormously useful to write down your reasoning for what you are doing. What is your next goal? What is your strategy for solving this system of equations? Why are you assuming this term in your balance is negligible?** This helps you and others understand what you are doing, for example if your colleague or boss is reviewing your calculations. Leslie Lamport, a famous computer scientist has a great quote along these lines, "If you are thinking without writing, you only think you're thinking." Writing out the logic of you solution will help you think through it critically, improving your learning and reducing your chances of making mistakes. Writing out your reasoning can also help you get partial credit.
 
-Before delving into some sweet calculations we need to cover a few conventions of calculations, scientific notation and significant figures.
 
 ```{r sort-algorithm, echo=FALSE}
 sortable::question_rank(
@@ -296,28 +296,25 @@ sortable::question_rank(
 ```
 
 
-## Putting it all together
+### Putting it all together
 
 Using a single dimensional equation, estimate the number of steps it would take for you to walk from  Earth to Alpha Centauri, a distance of 4.3 light years, assuming your steps are 2.5 ft on average. The speed of light is $1.86 \times 10^5$ miles/s.  
 
-```{r}
+```{r ac-getting-started}
+question_text_block("How are we going to start this? What do we want to convert to what? What is it that we are given? Draw out the problem to help you understand it.", 
+                    message = 'To start we should review our engineering calculation algorithm. Step 1 is: Draw a diagram of the system of interest and label the diagram with everything you know about the problem. What quantities are given? What quantities are unknown? What units are given and asked for? 
+      So to start we want to convert a distance to a distance, light-years to steps. You could draw out a simple diagram like the following, and label it with the given quantities.
+      <img src="images/Earth-AlphaCentauri-diagram.png" width="750px" height="300px" />
+      ',
+    answer("", correct = TRUE),
+    allow_retry = TRUE,
+    correct = paste(learnr::random_praise(), 
+                    "Here's our answer:"),
+    try_again = "Here's our answer:"
+)
 
 ```
 
-
-> ##### Question
->
-> How are we going to start this? What do we want to convert to what? What is it that we are given? Draw out the problem to help you understand it. 
->
-> ##### Solution
->
-> To start we should review our engineering calculation algorithm. Step 1 is: Draw a diagram of the system of interest and label the diagram with everything you know about the problem. What quantities are given? What quantities are unknown? What units are given and asked for? 
-> 
-> Conveniently, this is what this question is asking us for. 
-> 
-> So to start we want to convert a distance to a distance, light-years to steps. You could draw out a simple diagram like the following, and label it with the given quantities. 
->
-> ![](Earth-AlphaCentauri-diagram.png)
 
 We will cover more about Steps 2 and 3 of our calculation algorithm in the next sections of the course, but for unit conversions these are trivial. We don't need a formula for a conversion, just the conversion factors to cancel out the current units until we get to the desired units.
 
@@ -329,36 +326,56 @@ Write out your dimensional equation now.
 
 Step 6: Calculate. Plug in the numbers into your calculator. Don't forget significant figures. How many sig figs are in the given values?
 
->
-##### Question
-So how many steps would it take for you to walk from Earth to Alpha Centauri?  
->
-##### Solution
-$$
-\begin{array}{c|c|c}
-     4.3\text{ light-years} & 365 \text{ days}  & 24 \text{ hr} & 3600\text{ s} & 
-     1.86 \times 10^5 \text{ miles}  & 5280\text{ ft} & \text{ step}\\ \hline
-                            & \text{year}        & \text{day} & \text{hour} & 
-     \text{s}                         & \text{mile} & 2.5 \text{ ft}
-\end{array} = 5.3 \times 10^{16} \text{ steps}
-$$
->
->```{r}
->4.3 * 365 * 24 * 3600 * 1.86E5 * 5280 / 2.5
->```
-> Also, note how simple it is to just multiply by numbers on the top of the dimensional equation and divide by numbers on the bottom when typing this into your calculator and don't forget our given values are all with 2 sig figs so our answer should have 2 sig figs.
 
->
-##### Question: Doublecheck - step 7
-How could you double check your answer? 
->
-##### Solution
-Your intuition should tell you that it is going to be an extraordinarily large number of steps, which is true. All of your units cancel out appropriately, so that's good. You could google the conversion from light-years to miles and double check part of your calculation. For example 1 light year is how many miles?
->```{r}
->1 * 365 * 24 * 3600 * 1.86E5
->```
->Here is the handwritten solution:
-> ![](Earth to Alpha Centauri.png)
+```{r alg-num-ans, echo=FALSE}
+  #### 2
+  question_numeric(
+    sprintf(
+      "So how many steps would it take for you to walk from Earth to Alpha Centauri?"
+    ),
+    answer(signif(4.3 * 365 * 24 * 3600 * 1.86E5 * 5280 / 2.5, 2), correct = TRUE),
+    answer(signif(4.3 * 365 * 24 * 3600 * 1.86E5 * 5280 / 2.5, 3), 
+           correct = FALSE, 
+           message = "Double check your sig figs"), 
+    answer(signif(4.3 * 365 * 24 * 3600 * 1.86E5 * 5280 / 2.5, 4),
+           correct = FALSE, 
+           message = "Double check your sig figs"),     
+    answer(signif(4.3 * 365 * 24 * 3600 * 1.86E5 * 5280 / 2.5, 1), 
+       correct = FALSE, 
+       message = "Double check your sig figs"), 
+    answer(signif(4.3 * 365 * 24 * 60 * 1.86E5 * 5280 / 2.5, 1), 
+           correct = FALSE, 
+           message = "Double check your sig figs"), 
+    allow_retry = TRUE, 
+    try_again = "The correct order of magnitude is 10^16^. Double check that all of your units cancel out correctly. Sometimes it helps to start with a fresh piece of paper. Light-years are tricky, it helps to write it out $d = vt$, distance is velocity times time.", 
+    post_message = "$$
+\\begin{array}{c|c|c}
+     4.3\\text{ light-years} & 365 \\text{ days}  & 24 \\text{ hr} & 3600\\text{ s} & 
+     1.86 \\times 10^5 \\text{ miles}  & 5280\\text{ ft} & \\text{ step}\\\\ \\hline
+                            & \\text{year}        & \\text{day} & \\text{hour} & 
+     \\text{s}                         & \\text{mile} & 2.5 \\text{ ft}
+\\end{array} = 5.3 \\times 10^{16} \\text{ steps}
+$$
+Also, note how simple it is to just multiply by numbers on the top of the dimensional equation and divide by numbers on the bottom when typing this into your calculator and don't forget our given values are all with 2 sig figs so our answer should have 2 sig figs.
+"
+  )
+```
+
+Now onto step 7, you won't always get automated confirmation that you have the correct answer. On the job hopefully you will have good colleagues to double check your work, but how can you double check that your answer is feasible? 
+
+```{r double-check}
+question_text_block("How could you double check your answer?", 
+                    message = 'You could probably guess that it is going to be an extraordinarily large number of steps. All of your units cancel out appropriately, so that is good. You could google the conversion from light-years to miles and double check part of your calculation. For example 1 light year is how many miles? Here is our handwritten solution:
+      <img src="images/Earth to Alpha Centauri.png" width="750px" />
+      ',
+    answer("", correct = TRUE),
+    allow_retry = TRUE,
+    correct = paste(learnr::random_praise(), 
+                    "Here's our answer:"),
+    try_again = "Here's our answer:"
+)
+```
+
 
 ## Submit
 
