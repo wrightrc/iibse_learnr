@@ -2,7 +2,7 @@
 title: Units and Calculations
 description: "A review of best practices for engineering calculations"
 tutorial:
-  id: "wrightrc.github.io/intro-to-BSE"
+  id: "units-and-calculations"
   version: 0.1
 output:
   learnr::tutorial:
