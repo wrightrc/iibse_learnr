@@ -9,8 +9,8 @@ output:
     progressive: true
     theme: cerulean
     ace_theme: chrome
-    includes:
-      in_header: test1.html
+    config:
+      toc_depth: 4
 runtime: shiny_prerendered
 ---
 
@@ -268,7 +268,7 @@ Conversions between compound units require us to use multiple conversion factors
 
 In performing engineering calculations, it is generally best to proceed as follows:
 
-1. Draw a diagram of the system of interest and label the diagram with everything you know about the problem. What quantities are given? What quantities are unknown? What units are given and asked for?
+1. Draw a diagram of the system of interest and label the diagram with everything you know about the problem. What are the boundaries of the system? What is going into the system? What is coming out of the system? What quantities are given? What quantities are unknown? What units are given and asked for?
 2. Derive and write down the equations describing the system? These will typically be derived from material and energy balances (more on these later). 
 3. Double check that you have enough information to solve the problem with a degree of freedom analysis.
 4. Plan a strategy for solving the problem. Is it a simple single balance that must be solved? Do you need to simultaneously solve a system of equations? Is there an analytical solution to the equations?
@@ -298,13 +298,13 @@ sortable::question_rank(
 
 ### Putting it all together
 
-Using a single dimensional equation, estimate the number of steps it would take for you to walk from  Earth to Alpha Centauri, a distance of 4.3 light years, assuming your steps are 2.5 ft on average. The speed of light is $1.86 \times 10^5$ miles/s.  
+Using a single dimensional equation, estimate the number of steps it would take for you to walk from Earth to Alpha Centauri, a distance of 4.3 light years, assuming your steps are 2.5 ft on average. The speed of light is $1.86 \times 10^5$ miles/s.  
 
 ```{r ac-getting-started}
 question_text_block("How are we going to start this? What do we want to convert to what? What is it that we are given? Draw out the problem to help you understand it.", 
                     message = 'To start we should review our engineering calculation algorithm. Step 1 is: Draw a diagram of the system of interest and label the diagram with everything you know about the problem. What quantities are given? What quantities are unknown? What units are given and asked for? 
       So to start we want to convert a distance to a distance, light-years to steps. You could draw out a simple diagram like the following, and label it with the given quantities.
-      <img src="images/Earth-AlphaCentauri-diagram.png" width="750px" height="300px" />
+      <img src="images/Earth-AlphaCentauri-diagram.png" max-width="100%" width="100%" />
       ',
     answer("", correct = TRUE),
     allow_retry = TRUE,
@@ -366,7 +366,7 @@ Now onto step 7, you won't always get automated confirmation that you have the c
 ```{r double-check}
 question_text_block("How could you double check your answer?", 
                     message = 'You could probably guess that it is going to be an extraordinarily large number of steps. All of your units cancel out appropriately, so that is good. You could google the conversion from light-years to miles and double check part of your calculation. For example 1 light year is how many miles? Here is our handwritten solution:
-      <img src="images/Earth to Alpha Centauri.png" width="750px" />
+      <img src="images/Earth to Alpha Centauri.png" max-width="100%" width="100%" />
       ',
     answer("", correct = TRUE),
     allow_retry = TRUE,
@@ -376,6 +376,25 @@ question_text_block("How could you double check your answer?",
 )
 ```
 
+## Flow Diagrams
+
+Making a clear and complete flow diagram makes solving a difficult engineering problem much easier. This diagram should give you an accurate picture of what is known and unknown in the system/process and how it is operating. It also defines any assumptions you are making about a system/process.
+
+A **system** or a **process** can be nearly anything in biological systems engineering, a single molecule, a single cell, a test tube or petri dish full of cells or molecules, a whole animal or plant, a short segment of a stream, a fermentor full of thousands of liters of molecules and cells, a small retention pond,a whole field or farm, a confluence of rivers, a whole watershed, or the entire Earth and its atmosphere. In this test we will use **system** to describe these physical items, to which we apply engineering principles. We will use **process** to describe systems in which some physical, chemical, or biological reaction is happening, for example, settling of sediments, detoxification of contaminants, or growth of cells. 
+
+In drawing flow diagrams we will typically begin with a drawing a box representing our system of interest (or some other pictorial representation). 
+
+Our goal as engineers is to describe these systems and processes mathematically
+
+
+1. Draw a diagram of the system of interest and label the diagram with everything you know about the problem.
+    + Fully label every input and output stream with known variables.
+    + Label unknown variables with appropriate symbols. 
+    + Minimize unknown variables. Are there any unknowns that you can define in terms of other unknowns. For example, if you have a 3 component mixture, you only need to define 2 as unknowns, because the third component will be remainder of that mixture. 
+    + Simplify future calculations by looking over your flow diagram and deciding what units are are going to be most convenient for doing the calculations. This is called the **basis** of calculation. What final units do you need? What units are most given quantities in? Convert any quantities with odd units to the basis.
+
+## Mixtures and composition variables
+
 
 ## Submit
 
@@ -384,6 +403,6 @@ learnrhash::encoder_logic()
 ```
 
 ```{r encode, echo=FALSE}
-learnrhash::encoder_ui()
+learnrhash::encoder_ui(ui_before = default_ui(url = "https://canvas.vt.edu/courses/135076/quizzes/314176"))
 ```
 

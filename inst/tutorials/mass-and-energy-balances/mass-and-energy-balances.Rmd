@@ -9,8 +9,6 @@ output:
     progressive: true
     theme: cerulean
     ace_theme: chrome
-    includes:
-      in_header: ../test1.html
 runtime: shiny_prerendered
 ---
 
@@ -50,7 +48,7 @@ Just as Newton's Third Law defines that every force must be balanced by an equal
 
 We can define a *general balance equation* for any arbitrary system, like the systems we talked about at the very first beginning of this class. We sometimes also refer to systems as processes, depending on what the system/process is, but they can almost always be used interchangeably.
 
-<img src="images/System.png" width="600px" />
+<img src="images/System.png" max-width="100%" width="100%" />
 
 A balance around a system like that above can be written on any conserved quantity within the system, such as mass (of the total system, or individual species), energy, force, or momentum. If the system as shown above is closed, there is nothing crossing the system boundaries, then we can write a simple balance equation.  
 $$ \text{accumulation} = \text{generation} - \text{consumption}$$
@@ -188,7 +186,273 @@ Let's put these steps into practice!
 
 ## Mass Balance Example 1 
 
-Let's go back to the evaporator example from above.
+This is an example that you could probably solve easily without following the engineering calculation algorithm, but to introduce some of the concepts within it in a simple way let's walk through its steps with this relatively simple example.
+
+You have an overabundance of cucumbers in your garden and have decided to make a batch of naturally fermented pickles, to prevent them from going to waste. You've read up on this and found you need 3% by weight salt in the finished pickles to promote the growth of good, souring, lactic acid bacteria, while preventing the growth of spoilage organisms. 
+
+You have 2.00 kg of cucumbers that you have sliced and salted with 100. g of salt to draw out some of the liquid and make sure they stay crunchy after they are pickled. After about 1 hour you take these salted cucumbers and their juice and add them to your pickling crock along with 200. g (combined) of garlic, dill, and spices, and enough water to cover the pickles, an additional 1.50 L of water. How much salt do you need to add to this mixture to reach 3.00% salt in the total pickle mixture (including the weight of everything, spices, salt, and all)?
+
+Starting from the top of the engineering calculation algorithm:
+
+### Flow Diagram  
+
+1. Draw a diagram of the system of interest and label the diagram with everything you know about the problem.
+    + Fully label every input and output stream with known variables.
+    + Label unknown variables with appropriate symbols. 
+    + Minimize unknown variables. Are there any unknowns that you can define in terms of other unknowns. For example, if you have a 3 component mixture, you only need to define 2 as unknowns, because the third component will be remainder of that mixture. 
+    + Simplify future calculations by looking over your flow diagram and deciding what units are are going to be most convenient for doing the calculations. This is called the **basis** of calculation. What final units do you need? What units are most given quantities in? Convert any quantities with odd units to the basis.
+    
+```{r diagram-quiz}
+quiz(caption = "Answer the following to help you draw your flow diagram.",
+  question_checkbox("Which of the following are inputs?", 
+                    answer("Salted cucumbers and liquid", correct = TRUE), 
+                    answer("Water to cover", correct = TRUE), 
+                    answer("Garlic, dill, and spices", correct = TRUE), 
+                    answer("Extra salt", correct = TRUE), 
+                    answer("Final pickle mixture"), allow_retry = TRUE, 
+                    random_answer_order = TRUE),
+  question_checkbox("Which of the following are outputs?", 
+                    answer("Salted cucumbers and liquid"), 
+                    answer("Water to cover"), 
+                    answer("Garlic, dill, and spices"), 
+                    answer("Extra salt"), 
+                    answer("Final pickle mixture", correct = TRUE), 
+                    allow_retry = TRUE, 
+                    random_answer_order = TRUE),
+  question_checkbox("What quantities are unknown?", 
+                    answer("Mass of salted cucumbers and liquid"), 
+                    answer("Mass of water to cover"), 
+                    answer("Mass of garlic, dill, and spices"), 
+                    answer("Mass of extra salt", correct = TRUE), 
+                    answer("Mass of final pickle mixture", correct = TRUE), 
+                    answer("Percent salt in the final pickle mixture"),
+                    allow_retry = TRUE, 
+                    random_answer_order = TRUE), 
+  question_checkbox("What units would you use as your basis of calculation?", 
+                    answer("Liters"), 
+                    answer("Grams or kilograms", correct = TRUE), 
+                    answer("Moles"), 
+                    answer("Cucumbers"), 
+                    allow_retry = TRUE, 
+                    random_answer_order = TRUE, 
+                    post_message = paste(random_praise(), 'Here is our diagram.
+                    <img src="images/Flow-diagram.png" max-width="100%" width="100%" />'))
+)
+
+```
+
+    
+2. Derive the equations describing the system. These will typically be derived from material and energy balances.
+    + Begin with the general, differential or integral balance equation. Simplify this balance based on the type of system you are dealing with. Is there a reaction happening? Is the system steady state?
+    + Figure out how many balances you can possibly write. How many subunits does your process have? How many different species are in your process? We can write a balance for each subunit and species as well as a total mass balance and a total energy balance. However, all of these equations are not independent (more on this when we expand on degrees of freedom).
+    + Reserve a few lines of space to write out each of these balances, making a table like below for the form of the general balance for your system:
+    $$
+    \begin{array}{cccccc}
+      \text{General:} &\text{accumulation}& = & \text{input} & + & \text{generation} & - & \text{output} 
+     & - & \text{consumption} \\ 
+     \text{Species A:}& &&&&&&&& \\
+      \text{Species B:}& &&&&&&&& \\ 
+    \end{array}
+    $$
+    + Fill in below the general terms of your general balance (In, Out, etc) with the specific variables or quantities that make up that term from your flow diagram.  
+    + Simplify these balances individually as much as possible.
+    
+```{r balances-quiz}
+quiz(
+  question_checkbox("What type of system/process is this problem?", 
+                    answer("steady-state", TRUE), 
+                    answer("transient"), 
+                    answer("continuous"), 
+                    answer("semi-batch"), 
+                    answer("batch", TRUE),
+                    answer("open"), 
+                    answer("closed", TRUE),
+                    allow_retry = TRUE, 
+                    random_answer_order = TRUE),
+  question_radio("What form is your general balance going to take?", 
+               answer("Input = Output", correct = TRUE),
+               answer("Accumulation = Input - Output"),
+               answer("Accumulation = Input + Generation - Output"),
+               answer("Input + Generation = Output"),
+               answer("Accumulation = Input + Generation - Output - Consumption"),
+               allow_retry = TRUE,
+               random_answer_order = TRUE, 
+               post_message = "Yes, now we can write out the balance for each species!")
+)
+```
+
+### Balances
+
+We can now fill in each of the input and output balance terms for each species in our table. However, several species in this system don't matter, they just make up total mass. Actually all that we really care about is salt and total mass, right? All of the other balances don't have any unknowns in them that we care about (for example we don't care about the mass percent of cucumbers in the finished pickles). So let's just write the total mass balance and the salt mass balance. 
+
+To write these balances we simply go through the inlet streams and identify the terms describing the mass of the species we are writing our balance for in that stream. In the case of the total mass balance this means we add the mass of all of the species going in. For the salt balance, we only have salt in the salted cucumbers ($m_{1S}$) and the extra salt we are adding after we've added everything else ($m_{3S}$). Then we write an equal sign and we do the same for the outlet/finished product. We don't know the total mass of the final pickle mixture, so we this is just $m_4$ for the total balance. The mass of salt in the final product is this total mass $m_4$ times the percent salt in the final product, which we have decided should be 3%, or symbolically, $x_{4S}$.
+
+Here are our finished balances:
+
+<img src="images/Balances.png" max-width="100%" width="100%" />
+
+### Degrees of Freedom
+
+3. Double check that you have enough information to solve the problem with a degree of freedom analysis.
+    + Determine the number of unknowns.
+    + Determine the number of equations describing the system. For a non-reactive process, a balance can be written for each species in the system. Check that these equations are independent.
+    + DoF = unknowns - equations
+    + Are the degrees of freedom zero or negative? If the degrees of freedom are positive, restart the algorithm.
+    
+Let's go into a little more background on what degrees of freedom means. 
+    
+    
+## Degrees of Freedom
+
+We have a system of equations resulting from our material balances, containing some known and some unknown variables. Calculating the degrees of freedom of this system is simply an accounting exercise balancing the number of equations with the number of unknown variables. This let's us know how many possible solutions there are to this system. 
+
+As a simple example of degrees of freedom we can think about the equation for a line. 
+$$y = mx + b$$
+If we know the values of $m$ and $b$, we are left with 2 unknowns $x$ and $y$, which define a straight line. Since we only have this one equation our degrees of freedom analysis is 
+$$
+\begin{array}{rl}
+    & 2 \text{ unknowns } (x \text{ and } y) \\
+  - & 1 \text{ equation}  \\ \hline
+    & 1 \text{ degree of freedom}
+\end{array}
+$$
+This one degree of freedom defines a line, we can plug in any value of $x$ and calculate a $y$, or *vice versa*. 
+
+If our analysis results in zero degrees of freedom then we have a single value for our unknowns that results in a "balanced" equation. Balancing is often used to describe solving a system for all unknowns. For example if our system resulted in two equations 
+$y = m_1x + b_1$ and $y = m_2x + b_2$ and $m_2$ and $b_2$ are both known and the equations are independent then our degree of freedom analysis would result in 0 degrees of freedom. If we can simplify one more equations in our system to another, then they are not independent, *e.g.* if $m_1$ and $b_1$ can be multiplied by some single number to equal $m_2$ and $b_2$.
+
+So in this case the degree of freedom analysis yields:
+$$
+\begin{array}{rl}
+    & 2 \text{ unknowns } (x \text{ and } y) \\
+  - & 2 \text{ equations}  \\ \hline
+    & 0 \text{ degree of freedom}
+\end{array}
+$$
+Zero degrees of freedom means that we have one value for each unknown that satisfies this system of equations. Visually, there is one intersecting point between these two lines. All other point along these lines satisfy only one equation. 
+
+```{r dof-matching}
+quiz(caption = "Quiz: How many degrees of freedom does each of the following systems of equations have?", 
+  question_numeric("$y = 2x + 3 \\\\
+12 = 4y - 8x$", answer(1, correct = TRUE, message = "the equations are not independent")),
+  question_numeric("$n_1 = n_2 + 45 \\\\
+0.5n_1 = 0.5n_2 + 10$", answer(0, correct = TRUE)),
+  question_numeric("$42x_1 + 36x_2 = 0.1n_3$", answer(2, correct = TRUE))
+)
+```
+
+If the number of degrees of freedom is zero the problem can be solved as currently laid out. 
+
+If the degrees of freedom are positive, the system is **underspecified** additional information must be made available to solve. Is there a balance missing, or some other relationship between variables available? Can you make an assumption to simplify the problem? Don't forget energy balances, process specification, relationships between physical properties (like density, ideal gas laws), stoichiometry, or stream balances (the sum of component fractions in one stream must be 1). It the degrees of freedom are 1 or 2 you can possibly visualize the relationship between unknown variables and find some optimum.
+
+If the degrees of freedom are negative the system is **overspecified**. Make sure you are not missing any unknowns, and your equations are independent. If everything checks out, proceed to solve the system and you can use the extra information to double check your solution. 
+
+## Back to making pickles 
+
+### Degree of Freedom
+
+We know from our balances that we have 2 unknowns and 2 equations, and so we have 0 degrees of freedom, our system can be solved for one unique value to each unknown. In the balances below, both contain unknowns $m_{3S}$ and $m_4$.
+
+<img src="images/Balances.png" max-width="100%" width="100%" />
+
+What would happen if we wrote out the other balances? Well we would need to add an unknown for each new species balance, the mass fraction of that species in the final pickle mixture. So adding 1 new balance and 1 unknown will keep our system balanced allowing us to calculate these fractions, which might be useful, for example, if we wanted to make a final ingredients list sorted by the amount of each ingredient, like you would find in the nutrition facts label.
+
+### Strategy
+
+4. Plan a strategy for solving the problem. Is it a simple single balance that must be solved? How many unknowns are in each equation? Do you need to simultaneously solve a system of equations? If there are differential equations, is there an analytical solution to the equations?
+
+```{r strategy}
+quiz(caption = "Let's think through our strategy:",
+question_radio("How many unknowns are in each balance?", 
+               answer("Total: 2, Salt: 2", TRUE),
+               answer("Total: 1, Salt: 2"), 
+               answer("Total: 5, Salt: 2"), 
+               answer("Total: 1, Salt: 1"),
+               allow_retry = TRUE,
+               random_answer_order = TRUE),
+question_text_block("How would you solve this system of equations?", 
+                    message = 'You could either solve one equation for one unknown and plug this into the other or plot both equations and find the intersection of the two lines. Since we are asked for the mass of extra salt to add, $m_{3S}$, and since the total balance is already solved for $m_4$, it is easiest to plug $m_4$ from the total balance into the salt balance.',
+    answer("", correct = TRUE),
+    allow_retry = TRUE,
+    correct = paste(learnr::random_praise(), 
+                    "Here's our answer:"),
+    try_again = "Here's our answer:"
+)
+)
+```
+
+### Solve
+
+5. Solve the equations **symbolically** for the desired quantity, if possible or use equation solving software. Generally, this will prevent errors in your calculations by simplifying them (canceling single symbols is easier than canceling compound units). This will also prevent rounding errors from propagating from one calculation to another. Only determine sig figs for each answer after calculation, and do not use the rounded answer to calculate other answers!
+
+Additionally, when you are on the job, you might not be asked to calculate only one value for one set on unknowns; you are much more likely to need to define the relationship between some unknowns. Like the example above, maybe we plan to commercialize our pickle recipe and we do need to determine the mass fraction of each species in the final product. Or we may want to generalize our recipe since the shape and density of cucumbers will vary, requiring different amounts of water to cover and different amounts of added salt to reach 3% of the final total mass. 
+
+```{r solve1}
+question_radio("Which of the following is a correct equation for calculating the mass of extra salt to add, based on the above flow diagram?", 
+               answer("$m_{3S} = \\dfrac{(m_{1C} + m_{1S} + m_{2F} + m_{2W})x_{4s} + m_{1S}}{1-x_{4S}}$", TRUE),
+               answer("$m_{3S} = \\dfrac{(m_{1C} + m_{2F} + m_{2W})x_{4s} + m_{1S}}{1-x_{4S}}$"),
+               answer("$m_{3S} = \\dfrac{(m_{1C} + m_{1S} + m_{2F} + m_{2W} + m_{3S})x_{4s} + m_{1S}}{1-x_{4S}}$"),
+               answer("$m_{3S} = \\dfrac{(m_{1C} + m_{1S} + m_{2F} + m_{2W})x_{4s} + m_{1S}}{x_{4S}}$"), 
+               allow_retry = TRUE, 
+               random_answer_order = TRUE, 
+               post_message = paste(random_praise(), 'Here is how we reached this solution:  
+               <img src="images/Solve.png" max-width="100%" width="100%" />')
+)
+```
+
+### Calculate
+
+6. Write a dimensional equation for your solution, plugging in values and units of given quantities, and apply any necessary conversion factors to calculate the desired quantity in the desired units.
+
+```{r salt-mass}
+question_radio("How much salt do you need to add to the mixture to reach 3.00% by mass salt in the final product?", 
+               answer("221 g", message = "Double check that you didn't forget to add something"), 
+               answer("220 g", message = "Double check your rounding"),
+               answer("118 g", message = "Double check that you didn't forget to add something"),
+               answer("117.7 g", message = "Double check that you didn't forget to add something and your sig figs"),
+               answer("14.4 g", correct = TRUE),
+               answer("14.43 g", message = "Double check your sig figs"),
+               allow_retry = TRUE, 
+               random_answer_order = TRUE, 
+               post_message = paste(random_praise(), 'Here is how we reached this solution:  
+               <img src="images/Calculate.png" max-width="100%" width="100%" />'))
+```
+
+### Check
+
+7. Double check that your answer is feasible. How do you know your answer is right? You can plug your answer back into your balance equation and calculate a known quantity, estimate the "order of magnitude" of your answer, and/or just ask yourself "does this number make physical sense"?
+
+```{r double-check1}
+question_text_block("How could you double check your answer?", 
+                    message = 'You could get an estimate of whether your final salt concentration is close to 3% by just adding up all of the salt components and dividing by all of the other components. 
+                    <img src="images/Check.png" max-width="100%" width="100%" />  
+                    You could also plug in your number for $m_{3S}$ and calculate the fraction of salt in the final product from that, but if you have an error in your equations you might not catch this. There are many possible ways to check. If you take the time to double check you will likely catch any errors that have occured.',
+    answer("", correct = TRUE),
+    allow_retry = TRUE,
+    correct = paste(learnr::random_praise(), 
+                    "Here's our answer:"),
+    try_again = "Here's our answer:"
+)
+```
+
+
+## Submit
+
+At this point you can submit your work.
+
+```{r context="server"}
+learnrhash::encoder_logic()
+```
+
+```{r encode, echo=FALSE}
+learnrhash::encoder_ui(ui_before = default_ui(url = "https://canvas.vt.edu/courses/135076/quizzes/311123"))
+```
+
+We will work on the following example in class, but feel free to read through ahead of time so that you can have questions ready. 
+
+## Mass Balance Example 2
+
+Let's go back to the evaporator example from above. First a little background and motivation for evaporators. 
 
 To grow human cells *in vitro* (latin for in glass, meaning any science done in the lab in a glass or plastic vessel, outside of the native environment) you need to maintain high humidity and CO~2~ concentrations. The CO~2~ seems odd, but it is critical for maintaining the proper pH of the basic bicarbonate-buffered culture media. The CO~2~ dissolves into the media, becoming carbonic acid that can then donate or accept hydrogen ions, maintaining the pH.  This bicarbonate buffer is the same way your body maintains its pH. Because your cells are constantly producing CO~2~ from metabolism, your body has around 5% dissolved CO~2~. If your blood is becoming acidic you may hyperventilate to expel excess CO~2~ and return to normal pH. Because the ocean isn't buffered like our blood is, this is also how ocean acidification is caused by anthropogenic increases in atmospheric CO~2~. 
 
@@ -290,54 +554,6 @@ In this case there is no simplification we can do but our final step is:
 
 Now we are ready for Step 3: Double check that you have enough information to solve the problem with a degree of freedom analysis. 
 
-## Degrees of Freedom
-
-We have a system of equations resulting from our material balances, containing some known and some unknown variables. Calculating the degrees of freedom of this system is simply an accounting exercise balancing the number of equations with the number of unknown variables. This let's us know how many possible solutions there are to this system. 
-
-As a simple example of degrees of freedom we can think about the equation for a line. 
-$$y = mx + b$$
-If we know the values of $m$ and $b$, we are left with 2 unknowns $x$ and $y$, which define a straight line. Since we only have this one equation our degrees of freedom analysis is 
-$$
-\begin{array}{rl}
-    & 2 \text{ unknowns } (x \text{ and } y) \\
-  - & 1 \text{ equation}  \\ \hline
-    & 1 \text{ degree of freedom}
-\end{array}
-$$
-This one degree of freedom defines a line, we can plug in any value of $x$ and calculate a $y$, or *vice versa*. 
-
-If our analysis results in zero degrees of freedom then we have a single value for our unknowns that results in a "balanced" equation. Balancing is often used to describe solving a system for all unknowns. For example if our system resulted in two equations 
-$y = m_1x + b_1$ and $y = m_2x + b_2$ and $m_2$ and $b_2$ are both known and the equations are independent then our degree of freedom analysis would result in 0 degrees of freedom. If we can simplify one more equations in our system to another, then they are not independent, *e.g.* if $m_1$ and $b_1$ can be multiplied by some single number to equal $m_2$ and $b_2$.
-
-So in this case the degree of freedom analysis yields:
-$$
-\begin{array}{rl}
-    & 2 \text{ unknowns } (x \text{ and } y) \\
-  - & 2 \text{ equations}  \\ \hline
-    & 0 \text{ degree of freedom}
-\end{array}
-$$
-Zero degrees of freedom means that we have one value for each unknown that satisfies this system of equations. Visually, there is one intersecting point between these two lines. All other point along these lines satisfy only one equation. 
-
-```{r dof-matching}
-quiz(caption = "Quiz: How many degrees of freedom does each of the following systems of equations have?", 
-  question_numeric("$y = 2x + 3 \\\\
-12 = 4y - 8x$", answer(1, correct = TRUE, message = "the equations are not independent")),
-  question_numeric("$n_1 = n_2 + 45 \\\\
-0.5n_1 = 0.5n_2 + 10$", answer(0, correct = TRUE)),
-  question_numeric("$42x_1 + 36x_2 = 0.1n_3$", answer(2, correct = TRUE))
-)
-```
-
-
-If the number of degrees of freedom is zero the problem can be solved as currently laid out. 
-
-If the degrees of freedom are positive, the system is **underspecified** additional information must be made available to solve. Is there a balance missing, or some other relationship between variables available? Can you make an assumption to simplify the problem? Don't forget energy balances, process specification, relationships between physical properties (like density, ideal gas laws), stoichiometry, or stream balances (the sum of component fractions in one stream must be 1). It the degrees of freedom are 1 or 2 you can possibly visualize the relationship between unknown variables and find some optimum.
-
-If the degrees of freedom are negative the system is **overspecified**. Make sure you are not missing any unknowns, and your equations are independent. If everything checks out, proceed to solve the system and you can use the extra information to double check your solution. 
-
-## Back to our example
-
 3. Double check that you have enough information to solve the problem with a degree of freedom analysis.
     + Determine the number of unknowns.
     + Determine the number of equations describing the system. For a non-reactive process, a balance can be written for each species in the system. Check that these equations are independent.
@@ -361,7 +577,7 @@ Excellent, so we can solve this problem. How should we approach this?
 
 In this case we have a system of 3 equations that we can solve. Looking back at our equations and flow diagram, we can identify equations that might only have one unknown that could be solved. If so this is clearly the place to start. Then we can proceed with solving other equations beginning with those containing the least unknowns.
 
-```{r strategy}
+```{r strategy2}
 question_radio("Which balance can be solved directly for an unknown in our case?", 
                answer("water", correct = TRUE), 
                answer("air"), 
@@ -373,7 +589,7 @@ question_radio("Which balance can be solved directly for an unknown in our case?
 6. Write a dimensional equation for your solution, plugging in values and units of given quantities, and apply any necessary conversion factors to calculate the desired quantity in the desired units.
 
 ```{r solve}
-quiz(caption = "Quiz: Calculate each of the unknowns.",
+quiz(caption = "Calculate each of the unknowns.",
   question_numeric("Air in: $\\dot{n}_1 = ? \\text{ mol/min}$", 
                  answer(69, correct = TRUE)),
   question_numeric("CO^2 in: $\\dot{n}_2 = ?  \\text{ mol/min}$",
@@ -389,6 +605,7 @@ quiz(caption = "Quiz: Calculate each of the unknowns.",
 > Double check your answer using the remaining balance. Does your answer checkout?  
 
 So to sum up, let's reiterate our expanded algorithm for material and energy balances: 
+## Engineering Calculation Algorithm Expanded
 
 1. Draw a diagram of the system of interest and label the diagram with everything you know about the problem.
     + Fully label every input and output stream with known variables.

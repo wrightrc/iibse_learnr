@@ -1,0 +1,121 @@
+---
+title: Introduction to BSE and this interactive text
+tutorial:
+  id: "units-and-calculations"
+  version: 0.1
+output:
+  learnr::tutorial:
+    progressive: true
+    theme: cerulean
+    ace_theme: chrome
+runtime: shiny_prerendered
+---
+
+```{r setup, echo=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+
+
+library(learnr)
+#library(sortable) 
+library(learnrhash)
+library(interactiveBSE)
+source("../custom_learnr.R")
+#source("custom_learnr.R")
+
+#question_is_correct.always_correct <- function(question, value, ...) {
+#  return(learnr::mark_as(correct = TRUE, messages = NULL))
+#}
+
+#### Notes ####
+
+```
+
+## Welcome!
+
+Welcome to Biological Systems Engineering! As biological systems engineers we work across a variety of subjects, in the field, in the lab, and in cyberspace. We engineer systems across scales from individual molecules all the way up to whole ecosystems and everything in between. 
+
+Every year we survey you, the BSE2004 students, about your career interests and goals as well as the skills you think it will take to get you there. We'll share word clouds made from this survey later on this week. This survey will also act as an introduction to how many of active-learning, pre-work assignments in this class will operate.
+
+### The approach of this interactive text
+
+There will be blocks of text for you to read like this, maybe interspersed with equations and notes on problems we are trying to solve and case studies we are examining. Between blocks of text there will be questions, like those below, only focused on guiding your problem solving logic and critical thinking and putting into practice the skills you are learning. These questions will always be graded for completion only, but will provide you with immediate feedback about your answers. This immediate correct/incorrect feedback will allow you to quickly and effectively practice your problem solving skills by learning from your mistakes. Some questions are are short answer questions for which there is not one correct answer, but we will provide you with our answer after you submit yours. In many cases these questions are asking about your thought process, or metacognition. There is a great deal of evidence that thinking about your thinking throughout the problem solving process can improve your ability to solve more complex problems. 
+
+Working through most of this interactive text outside of class will allow us more time in class to tackle those more complex problems and discuss questions you might have about the concepts and problems in this text. This allows us to do more hands-on, team-based learning in class. 
+
+For now we have some just-for-fun survey questions to practice using this interface. Go ahead and answer the questions below.
+
+
+```{r focus-issues}
+quiz(caption = "Think about where you would like to focus your career. What problems/issues excite you? Enter the first THREE that come to mind in the blanks below.",
+  question("Career focus/problem/issue 1", 
+           correct = paste(random_praise(), "Thanks!"), 
+           answer("", correct = TRUE),
+           type = c("always_correct", "learnr_text")),
+  question("Career focus/problem/issue 2", 
+           correct = paste(random_praise(), "Thanks!"), 
+           answer("", correct = TRUE), 
+           type = c("always_correct", "learnr_text")),
+  question("Career focus/problem/issue 3", 
+           correct = paste(random_praise(), "Thanks!"), 
+           answer("", correct = TRUE), 
+           type = c("always_correct", "learnr_text"))
+)
+```
+
+
+```{r skills-knowledge}
+quiz(caption = "What skills/areas of knowledge will you need to be successful in your career? Again, enter the first THREE that come to mind in the blanks below.",
+  question("Skills/knowledge 1", 
+           correct = paste(random_praise(), "Thanks!"), 
+           answer("", correct = TRUE),
+           type = c("always_correct", "learnr_text")),
+  question("Skills/knowledge 2", 
+           correct = paste(random_praise(), "Thanks!"), 
+           answer("", correct = TRUE), 
+           type = c("always_correct", "learnr_text")),
+  question("Skills/knowledge 3", 
+           correct = paste(random_praise(), "Thanks!"), 
+           answer("", correct = TRUE), 
+           type = c("always_correct", "learnr_text"))
+)
+```
+
+Looking forward to seeing what this years word cloud looks like!
+
+## Inclusivity and Accessibility
+
+As teachers we *really* want to see you *all* succeed in your career and life goals. Through this course and the rest of your BSE course we will train you to be excellent problem solvers, team members, and communicators. Training is hard work, but you don't have to do it alone, and everyone's approach to training is a little bit different. If there is anything we can do to help you be your best you, please let us know. 
+
+```{r personal-qs}
+quiz(caption = "Personal Questions",
+  question("Do you prefer different pronouns or an alternative name than that which is listed in the course roster?", 
+           correct = "Great, thanks!", 
+           answer("", correct = TRUE),
+           type = c("always_correct", "learnr_text")),
+  question("Do you anticipate that there are aspects of this course that will prevent you from learning or exclude you? ", 
+           correct = "Thanks for letting us know!", 
+           answer("", correct = TRUE), 
+           type = c("always_correct", "learnr_text")),
+  question("Do you have any other questions or concerns about this course?", 
+           correct = "Thanks!", 
+           answer("", correct = TRUE), 
+           type = c("always_correct", "learnr_text"))
+)
+```
+
+## Submit
+
+This interface is anonymous,so to receive credit for these interactive text exercises you must submit your answers through Canvas. To do this you must generate and submit a hash code, which looks like just a bunch of random characters, but it actually is an encoded version of your answers that we can decrypt later. 
+
+To do this simply click the "Generate" button below to encode your answers and then click the "clipboard icon" to copy the code. Then click the Canvas link, paste in the code, and submit. There is also a reflection and feedback question below hash code submission in the Canvas submission page. Taking a minute to reflect on your learning has been shown to improve future recall of the material, and taking a minute to give us some feedback on this text will help us improve this text for future years and even later in this semester.
+
+Submit your survey answers via Canvas now.
+
+```{r context="server"}
+learnrhash::encoder_logic()
+```
+
+```{r encode, echo=FALSE}
+learnrhash::encoder_ui(ui_before = default_ui(url = "https://canvas.vt.edu/courses/135076/quizzes/311146"))
+```
+
