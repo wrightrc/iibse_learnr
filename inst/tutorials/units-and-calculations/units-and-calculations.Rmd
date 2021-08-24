@@ -380,11 +380,11 @@ question_text_block("How could you double check your answer?",
 
 Making a clear and complete flow diagram makes solving a difficult engineering problem much easier. This diagram should give you an accurate picture of what is known and unknown in the system/process and how it is operating. It also defines any assumptions you are making about a system/process.
 
-A **system** or a **process** can be nearly anything in biological systems engineering, a single molecule, a single cell, a test tube or petri dish full of cells or molecules, a whole animal or plant, a short segment of a stream, a fermentor full of thousands of liters of molecules and cells, a small retention pond,a whole field or farm, a confluence of rivers, a whole watershed, or the entire Earth and its atmosphere. In this test we will use **system** to describe these physical items, to which we apply engineering principles. We will use **process** to describe systems in which some physical, chemical, or biological reaction is happening, for example, settling of sediments, detoxification of contaminants, or growth of cells. 
+A **system** or a **process** can be nearly anything in biological systems engineering, a single molecule, a single cell, a test tube or petri dish full of cells or molecules, a whole animal or plant, a short segment of a stream, a fermentor full of thousands of liters of molecules and cells, a small retention pond,a whole field or farm, a confluence of rivers, a whole watershed, or the entire Earth and its atmosphere. Our goal as engineers is to describe these systems and processes mathematically In this text we will use **system** to describe these physical items, to which we apply engineering principles. We will use **process** to describe systems in which some physical, chemical, or biological reaction is happening, for example, settling of sediments, detoxification of contaminants, or growth of cells. 
 
-In drawing flow diagrams we will typically begin with a drawing a box representing our system of interest (or some other pictorial representation). 
+In drawing flow diagrams we will typically begin with a drawing a box (or some other pictorial representation) representing our system of interest. Then we will draw arrows going into or out of this box representing the initial contents or streams/pipes/flows of mass or energy that go into or out of the system. 
 
-Our goal as engineers is to describe these systems and processes mathematically
+
 
 
 1. Draw a diagram of the system of interest and label the diagram with everything you know about the problem.

@@ -18,9 +18,9 @@ knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
 library(learnr)
 #library(sortable) 
 library(learnrhash)
-library(interactiveBSE)
-source("../custom_learnr.R")
-#source("custom_learnr.R")
+#library(interactiveBSE)
+#source("../custom_learnr.R")
+source("custom_learnr.R")
 
 #question_is_correct.always_correct <- function(question, value, ...) {
 #  return(learnr::mark_as(correct = TRUE, messages = NULL))

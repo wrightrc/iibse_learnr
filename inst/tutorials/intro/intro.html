@@ -13,7 +13,7 @@
 <meta name="progressive" content="true" />
 <meta name="allow-skip" content="false" />
 
-<title>Units and Calculations</title>
+<title>Introduction to BSE and this interactive text</title>
 
 
 <!-- highlightjs -->
@@ -104,6 +104,15 @@ if (window.hljs) {
 
 <div class="topics">
 
+<div id="section-welcome" class="section level2">
+<h2>Welcome!</h2>
+<p>Welcome to Biological Systems Engineering! As biological systems engineers we work across a variety of subjects, in the field, in the lab, and in cyberspace. We engineer systems across scales from individual molecules all the way up to whole ecosystems and everything in between.</p>
+<p>Every year we survey you, the BSE2004 students, about your career interests and goals as well as the skills you think it will take to get you there. We’ll share word clouds made from this survey later on this week. This survey will also act as an introduction to how many of active-learning, pre-work assignments in this class will operate.</p>
+<div id="section-the-approach-of-this-interactive-text" class="section level3">
+<h3>The approach of this interactive text</h3>
+<p>There will be blocks of text for you to read like this, maybe interspersed with equations and notes on problems we are trying to solve and case studies we are examining. Between blocks of text there will be questions, like those below, only focused on guiding your problem solving logic and critical thinking and putting into practice the skills you are learning. These questions will always be graded for completion only, but will provide you with immediate feedback about your answers. This immediate correct/incorrect feedback will allow you to quickly and effectively practice your problem solving skills by learning from your mistakes. Some questions are are short answer questions for which there is not one correct answer, but we will provide you with our answer after you submit yours. In many cases these questions are asking about your thought process, or metacognition. There is a great deal of evidence that thinking about your thinking throughout the problem solving process can improve your ability to solve more complex problems.</p>
+<p>Working through most of this interactive text outside of class will allow us more time in class to tackle those more complex problems and discuss questions you might have about the concepts and problems in this text. This allows us to do more hands-on, team-based learning in class.</p>
+<p>For now we have some just-for-fun survey questions to practice using this interface. Go ahead and answer the questions below.</p>
 <p><div class="panel-heading tutorial-quiz-title">Think about where you would like to focus your career. What problems/issues excite you? Enter the first THREE that come to mind in the blanks below.</div></p>
 <div class="panel panel-default">
 <div data-label="focus-issues-1" class="tutorial-question panel-body">
@@ -154,6 +163,12 @@ if (window.hljs) {
 <script>if (Tutorial.triggerMathJax) Tutorial.triggerMathJax()</script>
 </div>
 </div>
+<p>Looking forward to seeing what this years word cloud looks like!</p>
+</div>
+</div>
+<div id="section-inclusivity-and-accessibility" class="section level2">
+<h2>Inclusivity and Accessibility</h2>
+<p>As teachers we <em>really</em> want to see you <em>all</em> succeed in your career and life goals. Through this course and the rest of your BSE course we will train you to be excellent problem solvers, team members, and communicators. Training is hard work, but you don’t have to do it alone, and everyone’s approach to training is a little bit different. If there is anything we can do to help you be your best you, please let us know.</p>
 <p><div class="panel-heading tutorial-quiz-title">Personal Questions</div></p>
 <div class="panel panel-default">
 <div data-label="personal-qs-1" class="tutorial-question panel-body">
@@ -179,8 +194,12 @@ if (window.hljs) {
 <script>if (Tutorial.triggerMathJax) Tutorial.triggerMathJax()</script>
 </div>
 </div>
+</div>
 <div id="section-submit" class="section level2">
 <h2>Submit</h2>
+<p>This interface is anonymous,so to receive credit for these interactive text exercises you must submit your answers through Canvas. To do this you must generate and submit a hash code, which looks like just a bunch of random characters, but it actually is an encoded version of your answers that we can decrypt later.</p>
+<p>To do this simply click the “Generate” button below to encode your answers and then click the “clipboard icon” to copy the code. Then click the Canvas link, paste in the code, and submit. There is also a reflection and feedback question below hash code submission in the Canvas submission page. Taking a minute to reflect on your learning has been shown to improve future recall of the material, and taking a minute to give us some feedback on this text will help us improve this text for future years and even later in this semester.</p>
+<p>Submit your survey answers via Canvas now.</p>
 <div class="encoder_ui">
 <div>
 If you have completed this tutorial and are happy with all of your
@@ -258,15 +277,15 @@ knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
 
 
 library(learnr)
-#library(sortable)
+#library(sortable) 
 library(learnrhash)
 #library(interactiveBSE)
-#source("../custom_learnr.R")
+source("../custom_learnr.R")
 #source("custom_learnr.R")
 
-question_is_correct.always_correct <- function(question, value, ...) {
-  return(learnr::mark_as(correct = TRUE, messages = NULL))
-}
+#question_is_correct.always_correct <- function(question, value, ...) {
+#  return(learnr::mark_as(correct = TRUE, messages = NULL))
+#}
 
 #### Notes ####
 
@@ -293,45 +312,45 @@ session$onSessionEnded(function() {
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = c("always_correct", "learnr_text"), label = "focus-issues-1", 
     question = structure("Career focus/problem/issue 1", html = TRUE, class = c("html", 
-    "character")), answers = list(structure(list(id = "lnr_ans_33238a8", 
+    "character")), answers = list(structure(list(id = "lnr_ans_a34b2c6", 
         option = "", value = "", label = structure("", html = TRUE, class = c("html", 
         "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", 
     "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
     "character")), try_again = structure("<span data-i18n=\"button.questiontryagain\">Try Again<\u002fspan>", html = TRUE, class = c("html", 
-    "character"))), messages = list(correct = structure("Swell job! Thanks!", html = TRUE, class = c("html", 
+    "character"))), messages = list(correct = structure("You aced it! Thanks!", html = TRUE, class = c("html", 
     "character")), try_again = structure("Incorrect", html = TRUE, class = c("html", 
     "character")), incorrect = structure("Incorrect", html = TRUE, class = c("html", 
     "character")), message = NULL, post_message = NULL), ids = list(
         answer = "focus-issues-1-answer", question = "focus-issues-1"), 
     loading = structure("<strong>Loading:<\u002fstrong> \nCareer focus/problem/issue 1\n<br/><br/><br/>", html = TRUE, class = c("html", 
     "character")), random_answer_order = FALSE, allow_retry = FALSE, 
-    seed = 960944106.052526, options = list()), class = c("always_correct", 
+    seed = 1677953232.21864, options = list()), class = c("always_correct", 
 "learnr_text", "tutorial_question")))
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = c("always_correct", "learnr_text"), label = "focus-issues-2", 
     question = structure("Career focus/problem/issue 2", html = TRUE, class = c("html", 
-    "character")), answers = list(structure(list(id = "lnr_ans_5ea44cc", 
+    "character")), answers = list(structure(list(id = "lnr_ans_2b961f7", 
         option = "", value = "", label = structure("", html = TRUE, class = c("html", 
         "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", 
     "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
     "character")), try_again = structure("<span data-i18n=\"button.questiontryagain\">Try Again<\u002fspan>", html = TRUE, class = c("html", 
-    "character"))), messages = list(correct = structure("Success! Thanks!", html = TRUE, class = c("html", 
+    "character"))), messages = list(correct = structure("Super job! Thanks!", html = TRUE, class = c("html", 
     "character")), try_again = structure("Incorrect", html = TRUE, class = c("html", 
     "character")), incorrect = structure("Incorrect", html = TRUE, class = c("html", 
     "character")), message = NULL, post_message = NULL), ids = list(
         answer = "focus-issues-2-answer", question = "focus-issues-2"), 
     loading = structure("<strong>Loading:<\u002fstrong> \nCareer focus/problem/issue 2\n<br/><br/><br/>", html = TRUE, class = c("html", 
     "character")), random_answer_order = FALSE, allow_retry = FALSE, 
-    seed = 1226468860.42888, options = list()), class = c("always_correct", 
+    seed = 107243505.450061, options = list()), class = c("always_correct", 
 "learnr_text", "tutorial_question")))
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = c("always_correct", "learnr_text"), label = "focus-issues-3", 
     question = structure("Career focus/problem/issue 3", html = TRUE, class = c("html", 
-    "character")), answers = list(structure(list(id = "lnr_ans_c85ce7", 
+    "character")), answers = list(structure(list(id = "lnr_ans_d4bfd73", 
         option = "", value = "", label = structure("", html = TRUE, class = c("html", 
         "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", 
     "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
@@ -343,71 +362,71 @@ learnr:::question_prerendered_chunk(structure(list(type = c("always_correct", "l
         answer = "focus-issues-3-answer", question = "focus-issues-3"), 
     loading = structure("<strong>Loading:<\u002fstrong> \nCareer focus/problem/issue 3\n<br/><br/><br/>", html = TRUE, class = c("html", 
     "character")), random_answer_order = FALSE, allow_retry = FALSE, 
-    seed = 471049977.78065, options = list()), class = c("always_correct", 
+    seed = 159489671.925732, options = list()), class = c("always_correct", 
 "learnr_text", "tutorial_question")))
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = c("always_correct", "learnr_text"), label = "skills-knowledge-1", 
     question = structure("Skills/knowledge 1", html = TRUE, class = c("html", 
-    "character")), answers = list(structure(list(id = "lnr_ans_da47586", 
+    "character")), answers = list(structure(list(id = "lnr_ans_2fbccc6", 
         option = "", value = "", label = structure("", html = TRUE, class = c("html", 
         "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", 
     "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
     "character")), try_again = structure("<span data-i18n=\"button.questiontryagain\">Try Again<\u002fspan>", html = TRUE, class = c("html", 
-    "character"))), messages = list(correct = structure("Great work! Thanks!", html = TRUE, class = c("html", 
+    "character"))), messages = list(correct = structure("Nice job! Thanks!", html = TRUE, class = c("html", 
     "character")), try_again = structure("Incorrect", html = TRUE, class = c("html", 
     "character")), incorrect = structure("Incorrect", html = TRUE, class = c("html", 
     "character")), message = NULL, post_message = NULL), ids = list(
         answer = "skills-knowledge-1-answer", question = "skills-knowledge-1"), 
     loading = structure("<strong>Loading:<\u002fstrong> \nSkills/knowledge 1\n<br/><br/><br/>", html = TRUE, class = c("html", 
     "character")), random_answer_order = FALSE, allow_retry = FALSE, 
-    seed = 1655242070.22922, options = list()), class = c("always_correct", 
+    seed = 513311551.760971, options = list()), class = c("always_correct", 
 "learnr_text", "tutorial_question")))
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = c("always_correct", "learnr_text"), label = "skills-knowledge-2", 
     question = structure("Skills/knowledge 2", html = TRUE, class = c("html", 
-    "character")), answers = list(structure(list(id = "lnr_ans_b7d7ac3", 
+    "character")), answers = list(structure(list(id = "lnr_ans_e7dcd8b", 
         option = "", value = "", label = structure("", html = TRUE, class = c("html", 
         "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", 
     "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
     "character")), try_again = structure("<span data-i18n=\"button.questiontryagain\">Try Again<\u002fspan>", html = TRUE, class = c("html", 
-    "character"))), messages = list(correct = structure("Smashing! Thanks!", html = TRUE, class = c("html", 
+    "character"))), messages = list(correct = structure("Delightful! Thanks!", html = TRUE, class = c("html", 
     "character")), try_again = structure("Incorrect", html = TRUE, class = c("html", 
     "character")), incorrect = structure("Incorrect", html = TRUE, class = c("html", 
     "character")), message = NULL, post_message = NULL), ids = list(
         answer = "skills-knowledge-2-answer", question = "skills-knowledge-2"), 
     loading = structure("<strong>Loading:<\u002fstrong> \nSkills/knowledge 2\n<br/><br/><br/>", html = TRUE, class = c("html", 
     "character")), random_answer_order = FALSE, allow_retry = FALSE, 
-    seed = 1242643689.92135, options = list()), class = c("always_correct", 
+    seed = 157830180.926505, options = list()), class = c("always_correct", 
 "learnr_text", "tutorial_question")))
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = c("always_correct", "learnr_text"), label = "skills-knowledge-3", 
     question = structure("Skills/knowledge 3", html = TRUE, class = c("html", 
-    "character")), answers = list(structure(list(id = "lnr_ans_2c1deae", 
+    "character")), answers = list(structure(list(id = "lnr_ans_9e6011e", 
         option = "", value = "", label = structure("", html = TRUE, class = c("html", 
         "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", 
     "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
     "character")), try_again = structure("<span data-i18n=\"button.questiontryagain\">Try Again<\u002fspan>", html = TRUE, class = c("html", 
-    "character"))), messages = list(correct = structure("Resplendent! Thanks!", html = TRUE, class = c("html", 
+    "character"))), messages = list(correct = structure("I couldn&#39;t have done it better myself. Thanks!", html = TRUE, class = c("html", 
     "character")), try_again = structure("Incorrect", html = TRUE, class = c("html", 
     "character")), incorrect = structure("Incorrect", html = TRUE, class = c("html", 
     "character")), message = NULL, post_message = NULL), ids = list(
         answer = "skills-knowledge-3-answer", question = "skills-knowledge-3"), 
     loading = structure("<strong>Loading:<\u002fstrong> \nSkills/knowledge 3\n<br/><br/><br/>", html = TRUE, class = c("html", 
     "character")), random_answer_order = FALSE, allow_retry = FALSE, 
-    seed = 1692737673.71176, options = list()), class = c("always_correct", 
+    seed = 335350366.34384, options = list()), class = c("always_correct", 
 "learnr_text", "tutorial_question")))
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = c("always_correct", "learnr_text"), label = "personal-qs-1", 
     question = structure("Do you prefer different pronouns or an alternative name than that which is listed in the course roster?", html = TRUE, class = c("html", 
-    "character")), answers = list(structure(list(id = "lnr_ans_ffe28e1", 
+    "character")), answers = list(structure(list(id = "lnr_ans_2f4176e", 
         option = "", value = "", label = structure("", html = TRUE, class = c("html", 
         "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", 
     "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
@@ -419,14 +438,14 @@ learnr:::question_prerendered_chunk(structure(list(type = c("always_correct", "l
         answer = "personal-qs-1-answer", question = "personal-qs-1"), 
     loading = structure("<strong>Loading:<\u002fstrong> \nDo you prefer different pronouns or an alternative name than that which is listed in the course roster?\n<br/><br/><br/>", html = TRUE, class = c("html", 
     "character")), random_answer_order = FALSE, allow_retry = FALSE, 
-    seed = 479184454.276862, options = list()), class = c("always_correct", 
+    seed = 2107009878.01885, options = list()), class = c("always_correct", 
 "learnr_text", "tutorial_question")))
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = c("always_correct", "learnr_text"), label = "personal-qs-2", 
     question = structure("Do you anticipate that there are aspects of this course that will prevent you from learning or exclude you? ", html = TRUE, class = c("html", 
-    "character")), answers = list(structure(list(id = "lnr_ans_48ab0a9", 
+    "character")), answers = list(structure(list(id = "lnr_ans_e2e35eb", 
         option = "", value = "", label = structure("", html = TRUE, class = c("html", 
         "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", 
     "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
@@ -438,14 +457,14 @@ learnr:::question_prerendered_chunk(structure(list(type = c("always_correct", "l
         answer = "personal-qs-2-answer", question = "personal-qs-2"), 
     loading = structure("<strong>Loading:<\u002fstrong> \nDo you anticipate that there are aspects of this course that will prevent you from learning or exclude you? \n<br/><br/><br/>", html = TRUE, class = c("html", 
     "character")), random_answer_order = FALSE, allow_retry = FALSE, 
-    seed = 872138829.093879, options = list()), class = c("always_correct", 
+    seed = 1974590718.08051, options = list()), class = c("always_correct", 
 "learnr_text", "tutorial_question")))
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = c("always_correct", "learnr_text"), label = "personal-qs-3", 
     question = structure("Do you have any other questions or concerns about this course?", html = TRUE, class = c("html", 
-    "character")), answers = list(structure(list(id = "lnr_ans_ed844", 
+    "character")), answers = list(structure(list(id = "lnr_ans_217dd2", 
         option = "", value = "", label = structure("", html = TRUE, class = c("html", 
         "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", 
     "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
@@ -457,7 +476,7 @@ learnr:::question_prerendered_chunk(structure(list(type = c("always_correct", "l
         answer = "personal-qs-3-answer", question = "personal-qs-3"), 
     loading = structure("<strong>Loading:<\u002fstrong> \nDo you have any other questions or concerns about this course?\n<br/><br/><br/>", html = TRUE, class = c("html", 
     "character")), random_answer_order = FALSE, allow_retry = FALSE, 
-    seed = 1822914996.65114, options = list()), class = c("always_correct", 
+    seed = 1379640066.85755, options = list()), class = c("always_correct", 
 "learnr_text", "tutorial_question")))
 </script>
  
@@ -485,7 +504,7 @@ learnrhash::encoder_logic()
 
 <!-- begin doc-metadata -->
 <div id="doc-metadata">
-<h2 class="title toc-ignore" style="display:none;">Units and Calculations</h2>
+<h2 class="title toc-ignore" style="display:none;">Introduction to BSE and this interactive text</h2>
 </div>
 <!-- end doc-metadata -->
 

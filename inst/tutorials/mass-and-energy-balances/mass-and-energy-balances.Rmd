@@ -19,7 +19,7 @@ knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
 library(learnr)
 library(sortable)
 library(learnrhash)
-library(interactiveBSE)
+#library(interactiveBSE)
 source("../custom_learnr.R")
 #source("custom_learnr.R")
 
