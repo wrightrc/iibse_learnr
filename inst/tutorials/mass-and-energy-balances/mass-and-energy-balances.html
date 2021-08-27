@@ -129,7 +129,7 @@ if (window.hljs) {
 <p>A balance around a system like that above can be written on any conserved quantity within the system, such as mass (of the total system, or individual species), energy, force, or momentum. If the system as shown above is closed, there is nothing crossing the system boundaries, then we can write a simple balance equation.<br />
 <span class="math display">\[ \text{accumulation} = \text{generation} - \text{consumption}\]</span> So for the conserved quantity of our choosing, its accumulation within the boundaries of the system is equal to its generation minus its consumption within the system. You could think about this being a bioreactor or a wastewater pond in which some reaction is happening. There may be a few different separable phases or compartments, or different species of microbes, representing the Things.</p>
 <p>Because matter is conserved in chemical reactions—molecules can be consumed in the reaction(s) to generate new molecules but the atoms that comprise them can be neither created nor destroyed—we can write out a balance as above for each molecular species in the reaction, and this system of equations will satisfy the Law of Conservation of Mass. We start with a chemical reaction because biological systems are full of chemical reactions, but you could also think about balancing energy, forces, or momentum within a system in this way.</p>
-<p>This balance based on conservation principles is also flexible because the boundaries around our system are arbitrary, they don’t necessarily need to be where they are drawn around all of the Things, we can draw them wherever is convenient for solving the problem at hand. For example, if we are most interested in what is going on in Thing 4 we could also draw a system, or a sub-system, around just Thing 1 and Thing 4.</p>
+<p>This balance, based on conservation principles, is also flexible because the boundaries around our system are arbitrary, they don’t necessarily need to be where they are drawn around all of the Things, we can draw them wherever is convenient for solving the problem at hand. For example, if we are most interested in what is going on in Thing1 and Thing 4 we could also draw a system, or a sub-system, around just Thing 1 and Thing 4.</p>
 <div class="figure">
 <img src="images/System2.png" alt="" />
 <p class="caption">A diagram of a general system with a boundary around Thing 1 and Thing 4.</p>
@@ -252,11 +252,11 @@ if (window.hljs) {
 \]</span></p>
 <p>So in the above city example we have measured the given rates of people moving, dying, and being born, and we can find the rate accumulation of people at that point in time. This is a differential balance. If the problem was phrased as “In the past year 50,000 people moved into the city, … How has the population changed in the past year?” this would be an integral balance. In this case we can just multiply our differential balance by the time period <span class="math inline">\(\Delta t\)</span> of 1 year to convert to the integral balance.</p>
 <p>In this class we are mostly concerned with either integral balances or steady-state differential balances. Remember from above, at steady-state the accumulation term is zero, so this removes the derivative term, making the differential equation of our differential balance an algebraic equation. Occasionally, we will also integrate differential balances to calculate time. For example, given a flow rate into a tank calculate how long it will take to fill.</p>
-<p>In future classes you will deal with true differential balances that allow you to derive expressions to predict the velocity and forces within moving fluids or the amount of time required for a culture of cells to reach a certain population size.</p>
+<p>Later in this class and in future classes you will deal with true differential balances that allow you to derive expressions to predict the velocity and forces within moving fluids or the amount of time required for a culture of cells to reach a certain population size.</p>
 </div>
 <div id="section-some-general-rules-for-simplifying-balances" class="section level3">
 <h3>Some general rules for simplifying balances</h3>
-<p>Going back to the algorithm for engineering calculations laid out in the previous lab we can expand a bit on steps 1 and 2 now that we have discussed deriving material balances.</p>
+<p>Going back to the algorithm for engineering calculations laid out in the previous section we can expand a bit on steps 1 and 2 now that we have discussed deriving material balances.</p>
 <ol style="list-style-type: decimal">
 <li>Draw a diagram of the system of interest and label the diagram with everything you know about the problem. What quantities are given? What quantities are unknown? What units are given and asked for?
 <ul>
@@ -804,8 +804,8 @@ library(learnr)
 library(sortable)
 library(learnrhash)
 #library(interactiveBSE)
-source("../custom_learnr.R")
-#source("custom_learnr.R")
+#source("../custom_learnr.R")
+source("custom_learnr.R")
 
 #### Notes ####
 #
@@ -833,15 +833,15 @@ session$onSessionEnded(function() {
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::store_exercise_setup_chunk("__setup__", c("knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)", 
 "", "", "library(learnr)", "library(sortable)", "library(learnrhash)", 
-"#library(interactiveBSE)", "source(\"../custom_learnr.R\")", 
-"#source(\"custom_learnr.R\")", "", "#### Notes ####", "#", "#"
+"#library(interactiveBSE)", "#source(\"../custom_learnr.R\")", 
+"source(\"custom_learnr.R\")", "", "#### Notes ####", "#", "#"
 ), overwrite = FALSE)
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "sortable_rank", label = "match-systems", 
     question = structure("Match the order of the correct process classifications to the process descriptions.  <\u002fp>\n\n<ul>\n<li>An inlet stream 20 L/min is flowing into a 50,000 L holding pond, how long it will take to fill, assuming neglible out flow?<br/><\u002fli>\n<li>A reactor containing 20 L of media is innoculated with 10<sup>10<\u002fsup> viable cells. If the maximum specific growth rate is 0.1 h<sup>-1,<\u002fsup> how long will it take for the culture to reach a concentration of 10<sup>9<\u002fsup> cells/mL?<br/><\u002fli>\n<li>To maintain humidity 1.5 mole% in an environmental chamber used for growing human cells, you install an evaporator unit in the air handling system. If the evaporator can evaporate 20 cm<sup>3/min<\u002fsup> of water, what must the flow rate of air from the air handling system be to achieve 1.5 mole% water?<br/><\u002fli>\n<\u002ful>\n", html = TRUE, class = c("html", 
-    "character")), answers = list(structure(list(id = "lnr_ans_58ad501", 
+    "character")), answers = list(structure(list(id = "lnr_ans_aa3c326", 
         option = c("Semi-batch", "Batch", "Continuous"), value = c("Semi-batch", 
         "Batch", "Continuous"), label = structure("Semi-batch\nBatch\nContinuous", html = TRUE, class = c("html", 
         "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", 
@@ -854,14 +854,14 @@ learnr:::question_prerendered_chunk(structure(list(type = "sortable_rank", label
         answer = "match-systems-answer", question = "match-systems"), 
     loading = structure("<strong>Loading:<\u002fstrong> \nMatch the order of the correct process classifications to the process descriptions.  <\u002fp>\n\n<ul>\n<li>An inlet stream 20 L/min is flowing into a 50,000 L holding pond, how long it will take to fill, assuming neglible out flow?<br/><\u002fli>\n<li>A reactor containing 20 L of media is innoculated with 10<sup>10<\u002fsup> viable cells. If the maximum specific growth rate is 0.1 h<sup>-1,<\u002fsup> how long will it take for the culture to reach a concentration of 10<sup>9<\u002fsup> cells/mL?<br/><\u002fli>\n<li>To maintain humidity 1.5 mole% in an environmental chamber used for growing human cells, you install an evaporator unit in the air handling system. If the evaporator can evaporate 20 cm<sup>3/min<\u002fsup> of water, what must the flow rate of air from the air handling system be to achieve 1.5 mole% water?<br/>\n<br/><br/><br/><\u002fli>\n<\u002ful>\n", html = TRUE, class = c("html", 
     "character")), random_answer_order = TRUE, allow_retry = TRUE, 
-    seed = 44646558.4792098, options = structure(list(), class = "sortable_options")), class = c("sortable_rank", 
+    seed = 551860478.74302, options = structure(list(), class = "sortable_options")), class = c("sortable_rank", 
 "tutorial_question")))
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", label = "city-bal-1-1", 
     question = structure("Input?", html = TRUE, class = c("html", 
-    "character")), answers = list(structure(list(id = "lnr_ans_8892417", 
+    "character")), answers = list(structure(list(id = "lnr_ans_34d00d", 
         option = "50000", value = 50000, label = structure("50000", html = TRUE, class = c("html", 
         "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", 
     "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
@@ -873,7 +873,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", labe
         answer = "city-bal-1-1-answer", question = "city-bal-1-1"), 
     loading = structure("<strong>Loading:<\u002fstrong> \nInput?\n<br/><br/><br/>", html = TRUE, class = c("html", 
     "character")), random_answer_order = FALSE, allow_retry = TRUE, 
-    seed = 624482618.209203, options = list(min = NA, max = NA, 
+    seed = 790935758.631692, options = list(min = NA, max = NA, 
         step = NA)), class = c("learnr_numeric", "tutorial_question"
 )))
 </script>
@@ -881,7 +881,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", labe
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", label = "city-bal-1-2", 
     question = structure("Output?", html = TRUE, class = c("html", 
-    "character")), answers = list(structure(list(id = "lnr_ans_b441235", 
+    "character")), answers = list(structure(list(id = "lnr_ans_9350a73", 
         option = "75000", value = 75000, label = structure("75000", html = TRUE, class = c("html", 
         "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", 
     "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
@@ -893,7 +893,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", labe
         answer = "city-bal-1-2-answer", question = "city-bal-1-2"), 
     loading = structure("<strong>Loading:<\u002fstrong> \nOutput?\n<br/><br/><br/>", html = TRUE, class = c("html", 
     "character")), random_answer_order = FALSE, allow_retry = TRUE, 
-    seed = 1158900484.46034, options = list(min = NA, max = NA, 
+    seed = 1555052653.77587, options = list(min = NA, max = NA, 
         step = NA)), class = c("learnr_numeric", "tutorial_question"
 )))
 </script>
@@ -901,7 +901,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", labe
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", label = "city-bal-1-3", 
     question = structure("Generation?", html = TRUE, class = c("html", 
-    "character")), answers = list(structure(list(id = "lnr_ans_5ab7010", 
+    "character")), answers = list(structure(list(id = "lnr_ans_fa6e41e", 
         option = "75000", value = 75000, label = structure("75000", html = TRUE, class = c("html", 
         "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", 
     "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
@@ -913,7 +913,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", labe
         answer = "city-bal-1-3-answer", question = "city-bal-1-3"), 
     loading = structure("<strong>Loading:<\u002fstrong> \nGeneration?\n<br/><br/><br/>", html = TRUE, class = c("html", 
     "character")), random_answer_order = FALSE, allow_retry = TRUE, 
-    seed = 856181356.60131, options = list(min = NA, max = NA, 
+    seed = 2014496495.56193, options = list(min = NA, max = NA, 
         step = NA)), class = c("learnr_numeric", "tutorial_question"
 )))
 </script>
@@ -921,7 +921,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", labe
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", label = "city-bal-1-4", 
     question = structure("Consumption?", html = TRUE, class = c("html", 
-    "character")), answers = list(structure(list(id = "lnr_ans_a6953cc", 
+    "character")), answers = list(structure(list(id = "lnr_ans_5ecf309", 
         option = "75000", value = 75000, label = structure("75000", html = TRUE, class = c("html", 
         "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", 
     "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
@@ -933,7 +933,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", labe
         answer = "city-bal-1-4-answer", question = "city-bal-1-4"), 
     loading = structure("<strong>Loading:<\u002fstrong> \nConsumption?\n<br/><br/><br/>", html = TRUE, class = c("html", 
     "character")), random_answer_order = FALSE, allow_retry = TRUE, 
-    seed = 1960221646.5872, options = list(min = NA, max = NA, 
+    seed = 1526785655.28904, options = list(min = NA, max = NA, 
         step = NA)), class = c("learnr_numeric", "tutorial_question"
 )))
 </script>
@@ -941,10 +941,10 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", labe
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_text", label = "city-bal-1-5", 
     question = structure("Is this an open or closed system?", html = TRUE, class = c("html", 
-    "character")), answers = list(structure(list(id = "lnr_ans_a129633", 
+    "character")), answers = list(structure(list(id = "lnr_ans_6960eaa", 
         option = "open", value = "open", label = structure("open", html = TRUE, class = c("html", 
         "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_4f82c2f", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_7b0d6c3", 
         option = "Open", value = "Open", label = structure("Open", html = TRUE, class = c("html", 
         "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", 
     "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
@@ -956,7 +956,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_text", label =
         answer = "city-bal-1-5-answer", question = "city-bal-1-5"), 
     loading = structure("<strong>Loading:<\u002fstrong> \nIs this an open or closed system?\n<br/><br/><br/>", html = TRUE, class = c("html", 
     "character")), random_answer_order = FALSE, allow_retry = TRUE, 
-    seed = 790176852.132045, options = list(placeholder = "Enter answer here...", 
+    seed = 1450792320.32442, options = list(placeholder = "Enter answer here...", 
         trim = TRUE)), class = c("learnr_text", "tutorial_question"
 )))
 </script>
@@ -964,10 +964,10 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_text", label =
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_text", label = "city-bal-1-6", 
     question = structure("Is this a batch, continuous, or semi-batch process?", html = TRUE, class = c("html", 
-    "character")), answers = list(structure(list(id = "lnr_ans_9828536", 
+    "character")), answers = list(structure(list(id = "lnr_ans_91f4828", 
         option = "continuous", value = "continuous", label = structure("continuous", html = TRUE, class = c("html", 
         "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_59199b9", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_d661a57", 
         option = "Continuous", value = "Continuous", label = structure("Continuous", html = TRUE, class = c("html", 
         "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", 
     "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
@@ -979,7 +979,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_text", label =
         answer = "city-bal-1-6-answer", question = "city-bal-1-6"), 
     loading = structure("<strong>Loading:<\u002fstrong> \nIs this a batch, continuous, or semi-batch process?\n<br/><br/><br/>", html = TRUE, class = c("html", 
     "character")), random_answer_order = FALSE, allow_retry = TRUE, 
-    seed = 303178141.358822, options = list(placeholder = "Enter answer here...", 
+    seed = 862991123.598138, options = list(placeholder = "Enter answer here...", 
         trim = TRUE)), class = c("learnr_text", "tutorial_question"
 )))
 </script>
@@ -987,7 +987,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_text", label =
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", label = "city-bal-2", 
     question = structure("What is the rate of accumulation of people in this city?", html = TRUE, class = c("html", 
-    "character")), answers = list(structure(list(id = "lnr_ans_8c4c571", 
+    "character")), answers = list(structure(list(id = "lnr_ans_ad8e88c", 
         option = "-22000", value = -22000, label = structure("-22000", html = TRUE, class = c("html", 
         "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", 
     "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
@@ -999,7 +999,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", labe
     "character"))), ids = list(answer = "city-bal-2-answer", 
         question = "city-bal-2"), loading = structure("<strong>Loading:<\u002fstrong> \nWhat is the rate of accumulation of people in this city?\n<br/><br/><br/>", html = TRUE, class = c("html", 
     "character")), random_answer_order = FALSE, allow_retry = TRUE, 
-    seed = 2136064914.00532, options = list(min = NA, max = NA, 
+    seed = 36371245.9830633, options = list(min = NA, max = NA, 
         step = NA)), class = c("learnr_numeric", "tutorial_question"
 )))
 </script>
@@ -1007,22 +1007,22 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", labe
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_checkbox", label = "diagram-quiz-1", 
     question = structure("Which of the following are inputs?", html = TRUE, class = c("html", 
-    "character")), answers = list(structure(list(id = "lnr_ans_a182c86", 
+    "character")), answers = list(structure(list(id = "lnr_ans_6f1b51b", 
         option = "Salted cucumbers and liquid", value = "Salted cucumbers and liquid", 
         label = structure("Salted cucumbers and liquid", html = TRUE, class = c("html", 
         "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_f9c8631", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_d166753", 
         option = "Water to cover", value = "Water to cover", 
         label = structure("Water to cover", html = TRUE, class = c("html", 
         "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_6c8ce6a", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_8e11dc4", 
         option = "Garlic, dill, and spices", value = "Garlic, dill, and spices", 
         label = structure("Garlic, dill, and spices", html = TRUE, class = c("html", 
         "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_5944588", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_45898a1", 
         option = "Extra salt", value = "Extra salt", label = structure("Extra salt", html = TRUE, class = c("html", 
         "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_cc3b21a", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_20ad9fe", 
         option = "Final pickle mixture", value = "Final pickle mixture", 
         label = structure("Final pickle mixture", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
@@ -1035,29 +1035,29 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_checkbox", lab
         answer = "diagram-quiz-1-answer", question = "diagram-quiz-1"), 
     loading = structure("<strong>Loading:<\u002fstrong> \nWhich of the following are inputs?\n<br/><br/><br/>", html = TRUE, class = c("html", 
     "character")), random_answer_order = TRUE, allow_retry = TRUE, 
-    seed = 1734055940.69252, options = list()), class = c("learnr_checkbox", 
+    seed = 1694680042.21085, options = list()), class = c("learnr_checkbox", 
 "tutorial_question")))
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_checkbox", label = "diagram-quiz-2", 
     question = structure("Which of the following are outputs?", html = TRUE, class = c("html", 
-    "character")), answers = list(structure(list(id = "lnr_ans_40b2ace", 
+    "character")), answers = list(structure(list(id = "lnr_ans_4fba6e5", 
         option = "Salted cucumbers and liquid", value = "Salted cucumbers and liquid", 
         label = structure("Salted cucumbers and liquid", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_c60c94", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_318e821", 
         option = "Water to cover", value = "Water to cover", 
         label = structure("Water to cover", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_f25cdf0", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_4f0f6cf", 
         option = "Garlic, dill, and spices", value = "Garlic, dill, and spices", 
         label = structure("Garlic, dill, and spices", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_e9a0e96", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_178d37f", 
         option = "Extra salt", value = "Extra salt", label = structure("Extra salt", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_c30455a", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_e2e5334", 
         option = "Final pickle mixture", value = "Final pickle mixture", 
         label = structure("Final pickle mixture", html = TRUE, class = c("html", 
         "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", 
@@ -1070,34 +1070,34 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_checkbox", lab
         answer = "diagram-quiz-2-answer", question = "diagram-quiz-2"), 
     loading = structure("<strong>Loading:<\u002fstrong> \nWhich of the following are outputs?\n<br/><br/><br/>", html = TRUE, class = c("html", 
     "character")), random_answer_order = TRUE, allow_retry = TRUE, 
-    seed = 427895719.800746, options = list()), class = c("learnr_checkbox", 
+    seed = 442021389.794168, options = list()), class = c("learnr_checkbox", 
 "tutorial_question")))
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_checkbox", label = "diagram-quiz-3", 
     question = structure("What quantities are unknown?", html = TRUE, class = c("html", 
-    "character")), answers = list(structure(list(id = "lnr_ans_fae493e", 
+    "character")), answers = list(structure(list(id = "lnr_ans_ac731b8", 
         option = "Mass of salted cucumbers and liquid", value = "Mass of salted cucumbers and liquid", 
         label = structure("Mass of salted cucumbers and liquid", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_35a5661", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_6e74000", 
         option = "Mass of water to cover", value = "Mass of water to cover", 
         label = structure("Mass of water to cover", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_98a9645", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_9cd0ffe", 
         option = "Mass of garlic, dill, and spices", value = "Mass of garlic, dill, and spices", 
         label = structure("Mass of garlic, dill, and spices", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_63a3eb3", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_370c64", 
         option = "Mass of extra salt", value = "Mass of extra salt", 
         label = structure("Mass of extra salt", html = TRUE, class = c("html", 
         "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_a2bc4d1", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_2e16b52", 
         option = "Mass of final pickle mixture", value = "Mass of final pickle mixture", 
         label = structure("Mass of final pickle mixture", html = TRUE, class = c("html", 
         "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_9dc356", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_c4f8428", 
         option = "Percent salt in the final pickle mixture", 
         value = "Percent salt in the final pickle mixture", label = structure("Percent salt in the final pickle mixture", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
@@ -1110,24 +1110,24 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_checkbox", lab
         answer = "diagram-quiz-3-answer", question = "diagram-quiz-3"), 
     loading = structure("<strong>Loading:<\u002fstrong> \nWhat quantities are unknown?\n<br/><br/><br/>", html = TRUE, class = c("html", 
     "character")), random_answer_order = TRUE, allow_retry = TRUE, 
-    seed = 1955057799.08961, options = list()), class = c("learnr_checkbox", 
+    seed = 1231803875.4264, options = list()), class = c("learnr_checkbox", 
 "tutorial_question")))
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_checkbox", label = "diagram-quiz-4", 
     question = structure("What units would you use as your basis of calculation?", html = TRUE, class = c("html", 
-    "character")), answers = list(structure(list(id = "lnr_ans_3a858fd", 
+    "character")), answers = list(structure(list(id = "lnr_ans_fa953af", 
         option = "Liters", value = "Liters", label = structure("Liters", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_1a31751", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_394dcae", 
         option = "Grams or kilograms", value = "Grams or kilograms", 
         label = structure("Grams or kilograms", html = TRUE, class = c("html", 
         "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_1bf82ba", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_616a8b8", 
         option = "Moles", value = "Moles", label = structure("Moles", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_687ff77", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_3b7688d", 
         option = "Cucumbers", value = "Cucumbers", label = structure("Cucumbers", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
     "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
@@ -1135,36 +1135,36 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_checkbox", lab
     "character"))), messages = list(correct = structure("Correct!", html = TRUE, class = c("html", 
     "character")), try_again = structure("Incorrect", html = TRUE, class = c("html", 
     "character")), incorrect = structure("Incorrect", html = TRUE, class = c("html", 
-    "character")), message = NULL, post_message = structure("Swell job! Here is our diagram.\n                    <img src=\"images/Flow-diagram.png\" max-width=\"100%\" width=\"100%\" />", html = TRUE, class = c("html", 
+    "character")), message = NULL, post_message = structure("That&#39;s marvelous! Here is our diagram.\n                    <img src=\"images/Flow-diagram.png\" max-width=\"100%\" width=\"100%\" />", html = TRUE, class = c("html", 
     "character"))), ids = list(answer = "diagram-quiz-4-answer", 
         question = "diagram-quiz-4"), loading = structure("<strong>Loading:<\u002fstrong> \nWhat units would you use as your basis of calculation?\n<br/><br/><br/>", html = TRUE, class = c("html", 
     "character")), random_answer_order = TRUE, allow_retry = TRUE, 
-    seed = 705723707.171372, options = list()), class = c("learnr_checkbox", 
+    seed = 138439965.435534, options = list()), class = c("learnr_checkbox", 
 "tutorial_question")))
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_checkbox", label = "balances-quiz-1", 
     question = structure("What type of system/process is this problem?", html = TRUE, class = c("html", 
-    "character")), answers = list(structure(list(id = "lnr_ans_877d25d", 
+    "character")), answers = list(structure(list(id = "lnr_ans_43ddb99", 
         option = "steady-state", value = "steady-state", label = structure("steady-state", html = TRUE, class = c("html", 
         "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_9534a4b", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_2c07e7d", 
         option = "transient", value = "transient", label = structure("transient", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_f0ef9e9", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_543bed4", 
         option = "continuous", value = "continuous", label = structure("continuous", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_16b08f6", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_89882c2", 
         option = "semi-batch", value = "semi-batch", label = structure("semi-batch", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_5346665", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_a89e040", 
         option = "batch", value = "batch", label = structure("batch", html = TRUE, class = c("html", 
         "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_61b7168", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_769c85b", 
         option = "open", value = "open", label = structure("open", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_e514b82", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_655bc02", 
         option = "closed", value = "closed", label = structure("closed", html = TRUE, class = c("html", 
         "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", 
     "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
@@ -1176,31 +1176,31 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_checkbox", lab
         answer = "balances-quiz-1-answer", question = "balances-quiz-1"), 
     loading = structure("<strong>Loading:<\u002fstrong> \nWhat type of system/process is this problem?\n<br/><br/><br/>", html = TRUE, class = c("html", 
     "character")), random_answer_order = TRUE, allow_retry = TRUE, 
-    seed = 1649182919.73204, options = list()), class = c("learnr_checkbox", 
+    seed = 384769160.820828, options = list()), class = c("learnr_checkbox", 
 "tutorial_question")))
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "balances-quiz-2", 
     question = structure("What form is your general balance going to take?", html = TRUE, class = c("html", 
-    "character")), answers = list(structure(list(id = "lnr_ans_d149325", 
+    "character")), answers = list(structure(list(id = "lnr_ans_27ab604", 
         option = "Input = Output", value = "Input = Output", 
         label = structure("Input = Output", html = TRUE, class = c("html", 
         "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_110c0f6", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_c517d53", 
         option = "Accumulation = Input - Output", value = "Accumulation = Input - Output", 
         label = structure("Accumulation = Input - Output", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_36fc7f5", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_d50308e", 
         option = "Accumulation = Input + Generation - Output", 
         value = "Accumulation = Input + Generation - Output", 
         label = structure("Accumulation = Input + Generation - Output", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_7e938d1", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_8fcc0dd", 
         option = "Input + Generation = Output", value = "Input + Generation = Output", 
         label = structure("Input + Generation = Output", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_b5aac54", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_ed65c20", 
         option = "Accumulation = Input + Generation - Output - Consumption", 
         value = "Accumulation = Input + Generation - Output - Consumption", 
         label = structure("Accumulation = Input + Generation - Output - Consumption", html = TRUE, class = c("html", 
@@ -1214,14 +1214,14 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
     "character"))), ids = list(answer = "balances-quiz-2-answer", 
         question = "balances-quiz-2"), loading = structure("<strong>Loading:<\u002fstrong> \nWhat form is your general balance going to take?\n<br/><br/><br/>", html = TRUE, class = c("html", 
     "character")), random_answer_order = TRUE, allow_retry = TRUE, 
-    seed = 1511698202.29606, options = list()), class = c("learnr_radio", 
+    seed = 410598335.8088, options = list()), class = c("learnr_radio", 
 "tutorial_question")))
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", label = "dof-matching-1", 
     question = structure("\\(y = 2x + 3 \\\\\n12 = 4y - 8x\\)", html = TRUE, class = c("html", 
-    "character")), answers = list(structure(list(id = "lnr_ans_cff5ad9", 
+    "character")), answers = list(structure(list(id = "lnr_ans_835245a", 
         option = "1", value = 1, label = structure("1", html = TRUE, class = c("html", 
         "character")), correct = TRUE, message = structure("the equations are not independent", html = TRUE, class = c("html", 
         "character"))), class = c("tutorial_question_answer", 
@@ -1234,7 +1234,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", labe
         answer = "dof-matching-1-answer", question = "dof-matching-1"), 
     loading = structure("<strong>Loading:<\u002fstrong> \n\\(y = 2x + 3 \\\\\n12 = 4y - 8x\\)\n<br/><br/><br/>", html = TRUE, class = c("html", 
     "character")), random_answer_order = FALSE, allow_retry = FALSE, 
-    seed = 1566613293.27049, options = list(min = NA, max = NA, 
+    seed = 266368685.375962, options = list(min = NA, max = NA, 
         step = NA)), class = c("learnr_numeric", "tutorial_question"
 )))
 </script>
@@ -1242,7 +1242,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", labe
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", label = "dof-matching-2", 
     question = structure("\\(n_1 = n_2 + 45 \\\\\n0.5n_1 = 0.5n_2 + 10\\)", html = TRUE, class = c("html", 
-    "character")), answers = list(structure(list(id = "lnr_ans_24f0b9a", 
+    "character")), answers = list(structure(list(id = "lnr_ans_7a1c6c9", 
         option = "0", value = 0, label = structure("0", html = TRUE, class = c("html", 
         "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", 
     "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
@@ -1254,7 +1254,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", labe
         answer = "dof-matching-2-answer", question = "dof-matching-2"), 
     loading = structure("<strong>Loading:<\u002fstrong> \n\\(n_1 = n_2 + 45 \\\\\n0.5n_1 = 0.5n_2 + 10\\)\n<br/><br/><br/>", html = TRUE, class = c("html", 
     "character")), random_answer_order = FALSE, allow_retry = FALSE, 
-    seed = 511635109.261751, options = list(min = NA, max = NA, 
+    seed = 220979297.397098, options = list(min = NA, max = NA, 
         step = NA)), class = c("learnr_numeric", "tutorial_question"
 )))
 </script>
@@ -1262,7 +1262,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", labe
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", label = "dof-matching-3", 
     question = structure("\\(42x_1 + 36x_2 = 0.1n_3\\)", html = TRUE, class = c("html", 
-    "character")), answers = list(structure(list(id = "lnr_ans_9bf7862", 
+    "character")), answers = list(structure(list(id = "lnr_ans_c89f931", 
         option = "2", value = 2, label = structure("2", html = TRUE, class = c("html", 
         "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", 
     "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
@@ -1274,26 +1274,26 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", labe
         answer = "dof-matching-3-answer", question = "dof-matching-3"), 
     loading = structure("<strong>Loading:<\u002fstrong> \n\\(42x_1 + 36x_2 = 0.1n_3\\)\n<br/><br/><br/>", html = TRUE, class = c("html", 
     "character")), random_answer_order = FALSE, allow_retry = FALSE, 
-    seed = 60438922.9718559, options = list(min = NA, max = NA, 
+    seed = 1740970918.6893, options = list(min = NA, max = NA, 
         step = NA)), class = c("learnr_numeric", "tutorial_question"
 )))
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "strategy-1", question = structure("How many unknowns are in each balance?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_d08c0a6", 
+"character")), answers = list(structure(list(id = "lnr_ans_96fa394", 
     option = "Total: 2, Salt: 2", value = "Total: 2, Salt: 2", 
     label = structure("Total: 2, Salt: 2", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_ba55e94", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_a552ced", 
     option = "Total: 1, Salt: 2", value = "Total: 1, Salt: 2", 
     label = structure("Total: 1, Salt: 2", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_1d9186b", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_e1752e9", 
     option = "Total: 5, Salt: 2", value = "Total: 5, Salt: 2", 
     label = structure("Total: 5, Salt: 2", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_e20a5b1", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_1dec5c0", 
     option = "Total: 1, Salt: 1", value = "Total: 1, Salt: 1", 
     label = structure("Total: 1, Salt: 1", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
@@ -1305,46 +1305,46 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 "character")), message = NULL, post_message = NULL), ids = list(
     answer = "strategy-1-answer", question = "strategy-1"), loading = structure("<strong>Loading:<\u002fstrong> \nHow many unknowns are in each balance?\n<br/><br/><br/>", html = TRUE, class = c("html", 
 "character")), random_answer_order = TRUE, allow_retry = TRUE, 
-    seed = 1961645106.58654, options = list()), class = c("learnr_radio", 
+    seed = 1197061442.94257, options = list()), class = c("learnr_radio", 
 "tutorial_question")))
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "text_block", label = "strategy-2", question = structure("How would you solve this system of equations?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_b71b1b5", 
+"character")), answers = list(structure(list(id = "lnr_ans_bcee884", 
     option = "", value = "", label = structure("", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", 
 "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
 "character")), try_again = structure("<span data-i18n=\"button.questiontryagain\">Try Again<\u002fspan>", html = TRUE, class = c("html", 
-"character"))), messages = list(correct = structure("Impressive work! Here&#39;s our answer:", html = TRUE, class = c("html", 
+"character"))), messages = list(correct = structure("Delightful! Here&#39;s our answer:", html = TRUE, class = c("html", 
 "character")), try_again = structure("Here&#39;s our answer:", html = TRUE, class = c("html", 
 "character")), incorrect = structure("Incorrect", html = TRUE, class = c("html", 
 "character")), message = structure("You could either solve one equation for one unknown and plug this into the other or plot both equations and find the intersection of the two lines. Since we are asked for the mass of extra salt to add, \\(m_{3S}\\), and since the total balance is already solved for \\(m_4\\), it is easiest to plug \\(m_4\\) from the total balance into the salt balance.", html = TRUE, class = c("html", 
 "character")), post_message = NULL), ids = list(answer = "strategy-2-answer", 
     question = "strategy-2"), loading = structure("<strong>Loading:<\u002fstrong> \nHow would you solve this system of equations?\n<br/><br/><br/>", html = TRUE, class = c("html", 
 "character")), random_answer_order = FALSE, allow_retry = TRUE, 
-    seed = 2009931279.56405, options = list()), class = c("text_block", 
+    seed = 419538123.304637, options = list()), class = c("text_block", 
 "tutorial_question")))
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "solve1", question = structure("Which of the following is a correct equation for calculating the mass of extra salt to add, based on the above flow diagram?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_303e6ce", 
+"character")), answers = list(structure(list(id = "lnr_ans_b9327ca", 
     option = "$m_{3S} = \\dfrac{(m_{1C} + m_{1S} + m_{2F} + m_{2W})x_{4s} + m_{1S}}{1-x_{4S}}$", 
     value = "$m_{3S} = \\dfrac{(m_{1C} + m_{1S} + m_{2F} + m_{2W})x_{4s} + m_{1S}}{1-x_{4S}}$", 
     label = structure("\\(m_{3S} = \\dfrac{(m_{1C} + m_{1S} + m_{2F} + m_{2W})x_{4s} + m_{1S}}{1-x_{4S}}\\)", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_a20adc4", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_ca5a55d", 
     option = "$m_{3S} = \\dfrac{(m_{1C} + m_{2F} + m_{2W})x_{4s} + m_{1S}}{1-x_{4S}}$", 
     value = "$m_{3S} = \\dfrac{(m_{1C} + m_{2F} + m_{2W})x_{4s} + m_{1S}}{1-x_{4S}}$", 
     label = structure("\\(m_{3S} = \\dfrac{(m_{1C} + m_{2F} + m_{2W})x_{4s} + m_{1S}}{1-x_{4S}}\\)", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_27a5a20", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_69eb605", 
     option = "$m_{3S} = \\dfrac{(m_{1C} + m_{1S} + m_{2F} + m_{2W} + m_{3S})x_{4s} + m_{1S}}{1-x_{4S}}$", 
     value = "$m_{3S} = \\dfrac{(m_{1C} + m_{1S} + m_{2F} + m_{2W} + m_{3S})x_{4s} + m_{1S}}{1-x_{4S}}$", 
     label = structure("\\(m_{3S} = \\dfrac{(m_{1C} + m_{1S} + m_{2F} + m_{2W} + m_{3S})x_{4s} + m_{1S}}{1-x_{4S}}\\)", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_9581cae", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_3704a56", 
     option = "$m_{3S} = \\dfrac{(m_{1C} + m_{1S} + m_{2F} + m_{2W})x_{4s} + m_{1S}}{x_{4S}}$", 
     value = "$m_{3S} = \\dfrac{(m_{1C} + m_{1S} + m_{2F} + m_{2W})x_{4s} + m_{1S}}{x_{4S}}$", 
     label = structure("\\(m_{3S} = \\dfrac{(m_{1C} + m_{1S} + m_{2F} + m_{2W})x_{4s} + m_{1S}}{x_{4S}}\\)", html = TRUE, class = c("html", 
@@ -1354,36 +1354,36 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 "character"))), messages = list(correct = structure("Correct!", html = TRUE, class = c("html", 
 "character")), try_again = structure("Incorrect", html = TRUE, class = c("html", 
 "character")), incorrect = structure("Incorrect", html = TRUE, class = c("html", 
-"character")), message = NULL, post_message = structure("Beautiful! Here is how we reached this solution:<br/>\n               <img src=\"images/Solve.png\" max-width=\"100%\" width=\"100%\" />", html = TRUE, class = c("html", 
+"character")), message = NULL, post_message = structure("Out of this world! Here is how we reached this solution:<br/>\n               <img src=\"images/Solve.png\" max-width=\"100%\" width=\"100%\" />", html = TRUE, class = c("html", 
 "character"))), ids = list(answer = "solve1-answer", question = "solve1"), 
     loading = structure("<strong>Loading:<\u002fstrong> \nWhich of the following is a correct equation for calculating the mass of extra salt to add, based on the above flow diagram?\n<br/><br/><br/>", html = TRUE, class = c("html", 
     "character")), random_answer_order = TRUE, allow_retry = TRUE, 
-    seed = 1144410709.46709, options = list()), class = c("learnr_radio", 
+    seed = 1091047494.99194, options = list()), class = c("learnr_radio", 
 "tutorial_question")))
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "salt-mass", question = structure("How much salt do you need to add to the mixture to reach 3.00% by mass salt in the final product?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_c61762", 
+"character")), answers = list(structure(list(id = "lnr_ans_5aafd4c", 
     option = "221 g", value = "221 g", label = structure("221 g", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = structure("Double check that you didn&#39;t forget to add something", html = TRUE, class = c("html", 
     "character"))), class = c("tutorial_question_answer", "tutorial_quiz_answer"
-)), structure(list(id = "lnr_ans_81674b8", option = "220 g", 
+)), structure(list(id = "lnr_ans_51da5be", option = "220 g", 
     value = "220 g", label = structure("220 g", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = structure("Double check your rounding", html = TRUE, class = c("html", 
     "character"))), class = c("tutorial_question_answer", "tutorial_quiz_answer"
-)), structure(list(id = "lnr_ans_c9bfd37", option = "118 g", 
+)), structure(list(id = "lnr_ans_382c40e", option = "118 g", 
     value = "118 g", label = structure("118 g", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = structure("Double check that you didn&#39;t forget to add something", html = TRUE, class = c("html", 
     "character"))), class = c("tutorial_question_answer", "tutorial_quiz_answer"
-)), structure(list(id = "lnr_ans_1ce3834", option = "117.7 g", 
+)), structure(list(id = "lnr_ans_d3edf1a", option = "117.7 g", 
     value = "117.7 g", label = structure("117.7 g", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = structure("Double check that you didn&#39;t forget to add something and your sig figs", html = TRUE, class = c("html", 
     "character"))), class = c("tutorial_question_answer", "tutorial_quiz_answer"
-)), structure(list(id = "lnr_ans_1698fc3", option = "14.4 g", 
+)), structure(list(id = "lnr_ans_259d7b4", option = "14.4 g", 
     value = "14.4 g", label = structure("14.4 g", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_3c7d2c7", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_a28318d", 
     option = "14.43 g", value = "14.43 g", label = structure("14.43 g", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = structure("Double check your sig figs", html = TRUE, class = c("html", 
     "character"))), class = c("tutorial_question_answer", "tutorial_quiz_answer"
@@ -1392,30 +1392,30 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 "character"))), messages = list(correct = structure("Correct!", html = TRUE, class = c("html", 
 "character")), try_again = structure("Incorrect", html = TRUE, class = c("html", 
 "character")), incorrect = structure("Incorrect", html = TRUE, class = c("html", 
-"character")), message = NULL, post_message = structure("Spectacular job! Here is how we reached this solution:<br/>\n               <img src=\"images/Calculate.png\" max-width=\"100%\" width=\"100%\" />", html = TRUE, class = c("html", 
+"character")), message = NULL, post_message = structure("That&#39;s glorious! Here is how we reached this solution:<br/>\n               <img src=\"images/Calculate.png\" max-width=\"100%\" width=\"100%\" />", html = TRUE, class = c("html", 
 "character"))), ids = list(answer = "salt-mass-answer", question = "salt-mass"), 
     loading = structure("<strong>Loading:<\u002fstrong> \nHow much salt do you need to add to the mixture to reach 3.00% by mass salt in the final product?\n<br/><br/><br/>", html = TRUE, class = c("html", 
     "character")), random_answer_order = TRUE, allow_retry = TRUE, 
-    seed = 1780855097.17072, options = list()), class = c("learnr_radio", 
+    seed = 218812093.898108, options = list()), class = c("learnr_radio", 
 "tutorial_question")))
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "text_block", label = "double-check1", 
     question = structure("How could you double check your answer?", html = TRUE, class = c("html", 
-    "character")), answers = list(structure(list(id = "lnr_ans_7e6efa7", 
+    "character")), answers = list(structure(list(id = "lnr_ans_68734b6", 
         option = "", value = "", label = structure("", html = TRUE, class = c("html", 
         "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", 
     "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
     "character")), try_again = structure("<span data-i18n=\"button.questiontryagain\">Try Again<\u002fspan>", html = TRUE, class = c("html", 
-    "character"))), messages = list(correct = structure("Someone knows what they&#39;re doing :) Here&#39;s our answer:", html = TRUE, class = c("html", 
+    "character"))), messages = list(correct = structure("Well done! Here&#39;s our answer:", html = TRUE, class = c("html", 
     "character")), try_again = structure("Here&#39;s our answer:", html = TRUE, class = c("html", 
     "character")), incorrect = structure("Incorrect", html = TRUE, class = c("html", 
     "character")), message = structure("You could get an estimate of whether your final salt concentration is close to 3% by just adding up all of the salt components and dividing by all of the other components. \n                    <img src=\"images/Check.png\" max-width=\"100%\" width=\"100%\" /><br/>\n                    You could also plug in your number for \\(m_{3S}\\) and calculate the fraction of salt in the final product from that, but if you have an error in your equations you might not catch this. There are many possible ways to check. If you take the time to double check you will likely catch any errors that have occured.", html = TRUE, class = c("html", 
     "character")), post_message = NULL), ids = list(answer = "double-check1-answer", 
         question = "double-check1"), loading = structure("<strong>Loading:<\u002fstrong> \nHow could you double check your answer?\n<br/><br/><br/>", html = TRUE, class = c("html", 
     "character")), random_answer_order = FALSE, allow_retry = TRUE, 
-    seed = 354770797.834797, options = list()), class = c("text_block", 
+    seed = 1740591459.68947, options = list()), class = c("text_block", 
 "tutorial_question")))
 </script>
  
@@ -1426,7 +1426,7 @@ learnrhash::encoder_logic()
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", label = "flow-diagram-1", 
     question = structure("How many input streams are there to the evaporator?", html = TRUE, class = c("html", 
-    "character")), answers = list(structure(list(id = "lnr_ans_2ce0c77", 
+    "character")), answers = list(structure(list(id = "lnr_ans_a27a598", 
         option = "3", value = 3, label = structure("3", html = TRUE, class = c("html", 
         "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", 
     "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
@@ -1438,7 +1438,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", labe
         answer = "flow-diagram-1-answer", question = "flow-diagram-1"), 
     loading = structure("<strong>Loading:<\u002fstrong> \nHow many input streams are there to the evaporator?\n<br/><br/><br/>", html = TRUE, class = c("html", 
     "character")), random_answer_order = FALSE, allow_retry = TRUE, 
-    seed = 401590112.812995, options = list(min = NA, max = NA, 
+    seed = 1981303313.57738, options = list(min = NA, max = NA, 
         step = NA)), class = c("learnr_numeric", "tutorial_question"
 )))
 </script>
@@ -1446,19 +1446,19 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", labe
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_checkbox", label = "flow-diagram-2", 
     question = structure("What are these input streams?", html = TRUE, class = c("html", 
-    "character")), answers = list(structure(list(id = "lnr_ans_1f4af35", 
+    "character")), answers = list(structure(list(id = "lnr_ans_d00edbc", 
         option = "Dry air", value = "Dry air", label = structure("Dry air", html = TRUE, class = c("html", 
         "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_a2e2b41", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_f4f0561", 
         option = "Water", value = "Water", label = structure("Water", html = TRUE, class = c("html", 
         "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_d4e79ab", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_98616a4", 
         option = "Pure CO~2~", value = "Pure CO~2~", label = structure("Pure CO~2~", html = TRUE, class = c("html", 
         "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_b4d9f79", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_662dfa4", 
         option = "Pure N~2~", value = "Pure N~2~", label = structure("Pure N~2~", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_d590090", 
+    "tutorial_quiz_answer")), structure(list(id = "lnr_ans_d8aee3", 
         option = "Humid air", value = "Humid air", label = structure("Humid air", html = TRUE, class = c("html", 
         "character")), correct = FALSE, message = structure("This is an outlet stream", html = TRUE, class = c("html", 
         "character"))), class = c("tutorial_question_answer", 
@@ -1471,21 +1471,21 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_checkbox", lab
         answer = "flow-diagram-2-answer", question = "flow-diagram-2"), 
     loading = structure("<strong>Loading:<\u002fstrong> \nWhat are these input streams?\n<br/><br/><br/>", html = TRUE, class = c("html", 
     "character")), random_answer_order = FALSE, allow_retry = TRUE, 
-    seed = 119608897.444303, options = list()), class = c("learnr_checkbox", 
+    seed = 656730199.694186, options = list()), class = c("learnr_checkbox", 
 "tutorial_question")))
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_checkbox", label = "basis", question = structure("What units for flow rates and concentrations are likely the most convenient to use as the basis of this calculation?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_4a3fa86", 
+"character")), answers = list(structure(list(id = "lnr_ans_16f60db", 
     option = "mol/min", value = "mol/min", label = structure("mol/min", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = structure("Yes, since we have mole fractions, it&#39;s best to use molar flowrates", html = TRUE, class = c("html", 
     "character"))), class = c("tutorial_question_answer", "tutorial_quiz_answer"
-)), structure(list(id = "lnr_ans_4565dcf", option = "mole %'s", 
+)), structure(list(id = "lnr_ans_218c5c8", option = "mole %'s", 
     value = "mole %'s", label = structure("mole %&#39;s", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = structure("Yes, since we have mole %s for most streams.", html = TRUE, class = c("html", 
     "character"))), class = c("tutorial_question_answer", "tutorial_quiz_answer"
-)), structure(list(id = "lnr_ans_afb15bb", option = "cm^3/min", 
+)), structure(list(id = "lnr_ans_4b01e3b", option = "cm^3/min", 
     value = "cm^3/min", label = structure("cm<sup>3/min<\u002fsup>", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = structure("No, even though we have the water given as a volumetric flow rate, since so many other given values are in moles (or mole %s) we would have to do more conversions.", html = TRUE, class = c("html", 
     "character"))), class = c("tutorial_question_answer", "tutorial_quiz_answer"
@@ -1497,28 +1497,28 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_checkbox", lab
 "character")), message = NULL, post_message = NULL), ids = list(
     answer = "basis-answer", question = "basis"), loading = structure("<strong>Loading:<\u002fstrong> \nWhat units for flow rates and concentrations are likely the most convenient to use as the basis of this calculation?\n<br/><br/><br/>", html = TRUE, class = c("html", 
 "character")), random_answer_order = TRUE, allow_retry = TRUE, 
-    seed = 1929904957.60132, options = list()), class = c("learnr_checkbox", 
+    seed = 2114515709.51535, options = list()), class = c("learnr_checkbox", 
 "tutorial_question")))
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "balance", question = structure("What form is your general balance going to take?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_7fb757c", 
+"character")), answers = list(structure(list(id = "lnr_ans_28897e4", 
     option = "Input = Output", value = "Input = Output", label = structure("Input = Output", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_a48de02", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_2e38809", 
     option = "Accumulation = Input - Output", value = "Accumulation = Input - Output", 
     label = structure("Accumulation = Input - Output", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_a2e4bad", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_e5a8efc", 
     option = "Accumulation = Input + Generation - Output", value = "Accumulation = Input + Generation - Output", 
     label = structure("Accumulation = Input + Generation - Output", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_e2f77f2", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_adf6c05", 
     option = "Input + Generation = Output", value = "Input + Generation = Output", 
     label = structure("Input + Generation = Output", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_368a99", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_c0e4397", 
     option = "Accumulation = Input + Generation - Output - Consumption", 
     value = "Accumulation = Input + Generation - Output - Consumption", 
     label = structure("Accumulation = Input + Generation - Output - Consumption", html = TRUE, class = c("html", 
@@ -1531,13 +1531,13 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 "character")), message = NULL, post_message = NULL), ids = list(
     answer = "balance-answer", question = "balance"), loading = structure("<strong>Loading:<\u002fstrong> \nWhat form is your general balance going to take?\n<br/><br/><br/>", html = TRUE, class = c("html", 
 "character")), random_answer_order = TRUE, allow_retry = TRUE, 
-    seed = 1916933636.60736, options = list()), class = c("learnr_radio", 
+    seed = 1578518606.76495, options = list()), class = c("learnr_radio", 
 "tutorial_question")))
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", label = "species", question = structure("How many species do we need to define in this system? (This is a little tricky, because air is a mixture, but can we split up oxygen and nitrogen?)", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_2d1b72c", 
+"character")), answers = list(structure(list(id = "lnr_ans_3f525d4", 
     option = "3", value = 3, label = structure("3", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = structure("Air, water, and carbon dioxide ", html = TRUE, class = c("html", 
     "character"))), class = c("tutorial_question_answer", "tutorial_quiz_answer"
@@ -1549,7 +1549,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", labe
 "character")), message = NULL, post_message = NULL), ids = list(
     answer = "species-answer", question = "species"), loading = structure("<strong>Loading:<\u002fstrong> \nHow many species do we need to define in this system? (This is a little tricky, because air is a mixture, but can we split up oxygen and nitrogen?)\n<br/><br/><br/>", html = TRUE, class = c("html", 
 "character")), random_answer_order = FALSE, allow_retry = FALSE, 
-    seed = 533690717.251481, options = list(min = NA, max = NA, 
+    seed = 1396786794.84957, options = list(min = NA, max = NA, 
         step = NA)), class = c("learnr_numeric", "tutorial_question"
 )))
 </script>
@@ -1557,7 +1557,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", labe
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", label = "dof-example", 
     question = structure("How many degrees of freedom are there for our example?", html = TRUE, class = c("html", 
-    "character")), answers = list(structure(list(id = "lnr_ans_a8b934e", 
+    "character")), answers = list(structure(list(id = "lnr_ans_94e0ac", 
         option = "0", value = 0, label = structure("0", html = TRUE, class = c("html", 
         "character")), correct = TRUE, message = structure("\\[\n          \\begin{array}{rl}\n              & 3 \\text{ unknowns } (\\dot{n}_1, \\dot{n}_2 \\text{ and } \\dot{n}_4) \\\\\n            - & 3 \\text{ equations: carbon dioxide, water, and air}  \\\\ \\hline\n              & 0 \\text{ degree of freedom}\n          \\end{array}\n          \\]", html = TRUE, class = c("html", 
         "character"))), class = c("tutorial_question_answer", 
@@ -1570,23 +1570,23 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", labe
         answer = "dof-example-answer", question = "dof-example"), 
     loading = structure("<strong>Loading:<\u002fstrong> \nHow many degrees of freedom are there for our example?\n<br/><br/><br/>", html = TRUE, class = c("html", 
     "character")), random_answer_order = FALSE, allow_retry = FALSE, 
-    seed = 1265875021.41053, options = list(min = NA, max = NA, 
+    seed = 467796866.782165, options = list(min = NA, max = NA, 
         step = NA)), class = c("learnr_numeric", "tutorial_question"
 )))
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "strategy2", question = structure("Which balance can be solved directly for an unknown in our case?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_5d22140", 
+"character")), answers = list(structure(list(id = "lnr_ans_b823777", 
     option = "water", value = "water", label = structure("water", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_b443f97", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_abfdd18", 
     option = "air", value = "air", label = structure("air", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_b3ac650", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_e311c22", 
     option = "CO^2", value = "CO^2", label = structure("CO<sup>2<\u002fsup>", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_a31d05", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_2767e52", 
     option = "N^2", value = "N^2", label = structure("N<sup>2<\u002fsup>", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", 
 "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
@@ -1597,13 +1597,13 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 "character")), message = NULL, post_message = NULL), ids = list(
     answer = "strategy2-answer", question = "strategy2"), loading = structure("<strong>Loading:<\u002fstrong> \nWhich balance can be solved directly for an unknown in our case?\n<br/><br/><br/>", html = TRUE, class = c("html", 
 "character")), random_answer_order = FALSE, allow_retry = FALSE, 
-    seed = 2096116855.02392, options = list()), class = c("learnr_radio", 
+    seed = 1245358520.42008, options = list()), class = c("learnr_radio", 
 "tutorial_question")))
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", label = "solve-1", question = structure("Air in: \\(\\dot{n}_1 = ? \\text{ mol/min}\\)", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_9207e3c", 
+"character")), answers = list(structure(list(id = "lnr_ans_5181e2a", 
     option = "69", value = 69, label = structure("69", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", 
 "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
@@ -1614,14 +1614,14 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", labe
 "character")), message = NULL, post_message = NULL), ids = list(
     answer = "solve-1-answer", question = "solve-1"), loading = structure("<strong>Loading:<\u002fstrong> \nAir in: \\(\\dot{n}_1 = ? \\text{ mol/min}\\)\n<br/><br/><br/>", html = TRUE, class = c("html", 
 "character")), random_answer_order = FALSE, allow_retry = FALSE, 
-    seed = 884620039.588067, options = list(min = NA, max = NA, 
+    seed = 605508108.718038, options = list(min = NA, max = NA, 
         step = NA)), class = c("learnr_numeric", "tutorial_question"
 )))
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", label = "solve-2", question = structure("CO<sup>2<\u002fsup> in: \\(\\dot{n}_2 = ?  \\text{ mol/min}\\)", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_5fd01d8", 
+"character")), answers = list(structure(list(id = "lnr_ans_f0d746f", 
     option = "3.7", value = 3.7, label = structure("3.7", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", 
 "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
@@ -1632,14 +1632,14 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", labe
 "character")), message = NULL, post_message = NULL), ids = list(
     answer = "solve-2-answer", question = "solve-2"), loading = structure("<strong>Loading:<\u002fstrong> \nCO<sup>2<\u002fsup> in: \\(\\dot{n}_2 = ?  \\text{ mol/min}\\)\n<br/><br/><br/>", html = TRUE, class = c("html", 
 "character")), random_answer_order = FALSE, allow_retry = FALSE, 
-    seed = 555015321.741551, options = list(min = NA, max = NA, 
+    seed = 29821034.4861135, options = list(min = NA, max = NA, 
         step = NA)), class = c("learnr_numeric", "tutorial_question"
 )))
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", label = "solve-3", question = structure("Mix out: \\(\\dot{n}_4 = ? \\text{ mol/min}\\)", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_672e366", 
+"character")), answers = list(structure(list(id = "lnr_ans_b9bd6c8", 
     option = "74", value = 74, label = structure("74", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", 
 "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
@@ -1650,7 +1650,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", labe
 "character")), message = NULL, post_message = NULL), ids = list(
     answer = "solve-3-answer", question = "solve-3"), loading = structure("<strong>Loading:<\u002fstrong> \nMix out: \\(\\dot{n}_4 = ? \\text{ mol/min}\\)\n<br/><br/><br/>", html = TRUE, class = c("html", 
 "character")), random_answer_order = FALSE, allow_retry = FALSE, 
-    seed = 1792475433.16531, options = list(min = NA, max = NA, 
+    seed = 296548555.361909, options = list(min = NA, max = NA, 
         step = NA)), class = c("learnr_numeric", "tutorial_question"
 )))
 </script>

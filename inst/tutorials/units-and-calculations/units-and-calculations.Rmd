@@ -378,23 +378,176 @@ question_text_block("How could you double check your answer?",
 
 ## Flow Diagrams
 
-Making a clear and complete flow diagram makes solving a difficult engineering problem much easier. This diagram should give you an accurate picture of what is known and unknown in the system/process and how it is operating. It also defines any assumptions you are making about a system/process.
+Making a clear and complete process or flow diagram makes solving a difficult engineering problem much easier. This diagram should give you an accurate picture of what is known and unknown in the system/process and how it is operating. It also defines any assumptions you are making about a system/process.
 
 A **system** or a **process** can be nearly anything in biological systems engineering, a single molecule, a single cell, a test tube or petri dish full of cells or molecules, a whole animal or plant, a short segment of a stream, a fermentor full of thousands of liters of molecules and cells, a small retention pond,a whole field or farm, a confluence of rivers, a whole watershed, or the entire Earth and its atmosphere. Our goal as engineers is to describe these systems and processes mathematically In this text we will use **system** to describe these physical items, to which we apply engineering principles. We will use **process** to describe systems in which some physical, chemical, or biological reaction is happening, for example, settling of sediments, detoxification of contaminants, or growth of cells. 
 
-In drawing flow diagrams we will typically begin with a drawing a box (or some other pictorial representation) representing our system of interest. Then we will draw arrows going into or out of this box representing the initial contents or streams/pipes/flows of mass or energy that go into or out of the system. 
+In drawing flow diagrams we will typically begin with drawing a box (or some other pictorial representation) representing our system of interest. Then we will draw arrows going into this box representing the initial contents or streams/pipes/flows of mass or energy that go into the system, and likewise arrows going out of the system representing the final contents or outlet flows. 
+
+**Arrows pointing into the systems are called inputs, inlets, inflows, reagents, feeds, etc. Arrows pointing away from the system are called outputs, outlets, outflows, products, effluents, etc.**
+
+For example, we could have the two diagrams below:
+![](images/Flow diagrams1.png)
+This diagram represents a watershed with various sources of water entering or exiting the system which is defined by the brown-green outlined cylinder section of earth. 
+
+```{r watershed-diagram-1}
+quiz(caption = "Identify the Inputs and Outputs of the above watershed flow diagram.",
+  question_checkbox("Inputs", 
+                    answer("Precipitation", correct = TRUE),
+                    answer("Evapotranspiration", correct = FALSE),
+                    answer("Surface Outflow", correct = FALSE), 
+                    answer("Subsurface Outflow", correct = FALSE), 
+                    answer("Subsurface Inflow", correct = TRUE),
+                    allow_retry = TRUE,
+                    random_answer_order = TRUE, 
+                    try_again = paste(random_encouragement(), "Try again."),
+                    correct = paste(random_praise(), "Correct!")),
+    question_checkbox("Outputs", 
+                    answer("Precipitation", correct = FALSE),
+                    answer("Evapotranspiration", correct = TRUE),
+                    answer("Surface Outflow", correct = TRUE), 
+                    answer("Subsurface Outflow", correct = TRUE), 
+                    answer("Subsurface Inflow", correct = FALSE),
+                    allow_retry = TRUE, 
+                    random_answer_order = TRUE,
+                    try_again = paste(random_encouragement(), "Try again."),
+                    correct = paste(random_praise(), "Correct!"))
+)
+```
+
+The below diagram of a bioreactor is a bit more complex and includes several mechanical and electrical components we should discuss. We are concerned about mass and energy so any components that don't affect the mass or energy in the system are not "inputs or outputs" in the sense we are discussing here. For example, the system monitor and sensor probes do not add or subtract any mass or energy from the system, they just give us information about the internal state of the system (maybe the temperature, pH, turbidity, or dissolved gas). The agitation system and thermal jacket are adding and subtracting energy from the system to maintain homogeneous reaction conditions and constant operating temperature of the reactor. Air is also bubbled through the medium in the reactor to provide oxygen to the microbes growing in the medium. The pumps control the flow rates of various streams but we will generally assume they don't add an energy in the form of heat to the medium.
+
+![](images/Flow diagrams2.png) 
+
+```{r bioreactor-diagram-1}
+quiz(caption = "Identify the Inputs and Outputs of the above bioreactor flow diagram.",
+  question_checkbox("Inputs", 
+                    answer("Medium", correct = TRUE),
+                    answer("Air", correct = TRUE),
+                    answer("Effluent", correct = FALSE),
+                    answer("Warm coolant", correct = FALSE), 
+                    answer("Cool coolant", correct = TRUE),
+                    answer("Air purge", correct = FALSE), 
+                    answer("Agitator", correct = TRUE),
+                    allow_retry = TRUE, 
+                    random_answer_order = TRUE,
+                    try_again = paste(random_encouragement(), "Try again."),
+                    correct = paste(random_praise(), "Correct!")),
+    question_checkbox("Outputs", 
+                    answer("Medium", correct = FALSE),
+                    answer("Air", correct = FALSE),
+                    answer("Effluent", correct = TRUE),
+                    answer("Warm coolant", correct = TRUE), 
+                    answer("Cool coolant", correct = FALSE),
+                    answer("Air purge", correct = TRUE), 
+                    answer("Agitator", correct = FALSE),
+                    allow_retry = TRUE, 
+                    random_answer_order = TRUE,
+                    try_again = paste(random_encouragement(), "Try again."),
+                    correct = paste(random_praise(), "Correct!"))
+)
+```
 
 
+These are quite detailed diagrams, which are nice to have to get an idea of how a system works, but might over complicate our problem solving. Let's simplify these into just boxes with inputs and outputs. We will also make some assumptions along the way. 
+
+### Defining the system
+
+To start we'll just draw a box defining our system, then label this box with the name of the process, as well as its operating conditions, variables we are holding fixed, variables that might be changing, and any assumptions we are making. Then we add our arrows for inlets and outlets. Here is a general example:
+
+![](images/general-flow-diagram1.png)
+
+Note that we do not necessarily have to strictly define our system as a whole process, watershed, or piece of equipment. We can also define subsystems within a system or multiple interconnected systems. For example in the bioreactor above we can define the coolant flowing through the thermal jacket as a subsystem and the media in the reactor as another subsystem. There is no mixing of the media and the coolant---they are totally separate vessels---but they do share a wall allowing the flow of heat from the reactor into the coolant fluid. So we can write mass and energy balances on these individual systems to determine the heat flowing from one into the other. In fact in this case it makes most sense to draw our system as these two subsystems since the only connection between the subsystems is in their energy balances. 
+
+Sometimes you have to draw out a couple of versions of the flow diagram of a system or revise your diagram as you work through the steps of the Engineering Calculation Algorithm. This will often come to light in your degrees of freedom analysis, but more on this in the next lesson. 
+
+### Labeling streams 
+
+Now we need to add variables, both known and unknown to our system flow diagram. Conventions for labeling streams and flow rates vary quite a bit between different subfields, as do the typical units these process/system variables are expressed in. We would recommend using the following system of letter variables with subscripts for streams and identities: $m$ for mass, $n$ for moles, $V$ for volume, and the dotted versions for respective flow rates $\dot{m}$, $\dot{n}$, and $\dot{V}$. So for example if you have stream with some mass of mud flowing into a retention pond or a bioreactor with some mass of media flowing in, we could label these streams $m_{1m}$. The subscript $1$ denotes this is the first stream we are dealing with. We might have multiple mud/media inlets, and there may also be mud/media outlet streams as well. Numbering the streams allows this labeling to be flexible to a variety of systems. The subscript $m$ denotes that this is the mud/media component of this stream. We might also need to define other components of this stream, such as a pollutant in the mud or vitamin in the media. This convention of $\text{quantity}_{\text{stream# component}}$ will help us to easily and correctly assemble our balance equations. But more on this next time.
+
+```{r stream-labels}
+sortable::question_rank("Sort the descriptions below so that they best match the following symbolic variables.  
+                        - $\\dot{V}_{2O_2}$  
+                        - $\\dot{V}_{4SSW}$  
+                        - ${m}_{2s}$  
+                        - $\\dot{n}_{2P}$  
+                        ", 
+                        answer(c("Volumetric flow rate of oxygen into the bioreactor",
+                        "Volumetric flow rate of subsurface water outflow",
+                        "Mass of sediment entering a watershed",
+                        "Molar flow rate of protein effluent from a purification process"), 
+                               correct = TRUE), 
+  allow_retry = TRUE
+)
+```
 
 
-1. Draw a diagram of the system of interest and label the diagram with everything you know about the problem.
-    + Fully label every input and output stream with known variables.
-    + Label unknown variables with appropriate symbols. 
-    + Minimize unknown variables. Are there any unknowns that you can define in terms of other unknowns. For example, if you have a 3 component mixture, you only need to define 2 as unknowns, because the third component will be remainder of that mixture. 
-    + Simplify future calculations by looking over your flow diagram and deciding what units are are going to be most convenient for doing the calculations. This is called the **basis** of calculation. What final units do you need? What units are most given quantities in? Convert any quantities with odd units to the basis.
+### Mixtures and composition variables
 
-## Mixtures and composition variables
+We introduced above that oftentimes we are not dealing with pure components in each stream but mixtures. These could be mixtures of gases, liquids, and/or solids. Remember solutions from chemistry? There are many different ways of describing a mixture, molarity, molality, mass fraction/percent, mole fraction/percent, volume fraction/percent, etc. All of these describe the amount of a total stream that is a particular species or component. This could be the amount of dissolved salt or other chemical in a solution, it could be solid materials suspended in a liquid like cells in media or sediment in runoff, or it could be dissolved oxygen in a river or bioreactor.
 
+For mixtures of liquids $x_{1A}$ is what we would use to represent the mass or mole fraction of component $A$ in stream 1, for mixtures of gases we would use $y_{1A}$. For the concentration (typically expressed in molarity, but sometimes g/L) of solute $A$ in solution of stream 1 we would use $c_{1A}$. 
+
+These conventions help us know how to express the mass or moles of each species in each stream as we need to do when writing out the balance for each species. Mass of a stream times the mass fraction of a species is the mass of that component in that stream. Similar for moles or molar flow rates and mole fractions. Concentrations are  moles (or sometimes mass) per volume, so concentration times volume is moles (or mass). So in all of these different units we can calculate the amount of species $A$ in stream 1: 
+
+$$m_1 x_{1A} = m_{1A}$$
+$$n_1 y_{1A} = n_{1A}$$
+$$V_1 c_{1A} = n_{1A}$$
+
+When in doubt double check that the units of your final calculation result in mass or moles.
+
+```{r composition-variables}
+quiz(caption = "If you make a solution of 30. g of sodium chloride in 500. g of water...",
+     question_radio("What is the molar concentration of sodium chloride, assuming the salt adds negligible volume to the solution?", 
+                    #`r signif(30/58.44/0.5, 2)`
+                    #`r signif(30/58.44/0.5, 3)`
+                    #`r signif(30/0.5, 2)`
+                    answer("1.0 M", correct = TRUE), 
+                    answer("1 M", message = "Don't forget sig figs"),
+                    answer("1.03 M", message = "Don't forget sig figs"),
+                    answer("1.0 g/L", message = "This is a mass concentration, molar is mol/L or M"),
+                    #`r signif(30/0.5, 2)`
+                    answer("60 M", message = "Don't forget to convert to moles"),
+                    allow_retry = TRUE,
+                    random_answer_order = TRUE),
+     question_radio("What is the mass fraction of sodium chloride?",
+                    # `r signif(30/(500 + 30), 2)`
+                    answer("0.057 g NaCl/g solution", correct = TRUE),
+                    # `r signif(30/(500 + 30), 3)
+                    answer("0.0566 g NaCl/g solution", message = "Don't forget sig figs"),
+                    #`r signif(30/(500), 2)`
+                    answer("0.06 g NaCl/g solution", message = "Make sure to divide by the total mass of the solution, including NaCl. Also check your sig figs."),
+                    # `r signif(30/(500), 3)`
+                    answer("0.060 g NaCl/g solution", message = "Make sure to divide by the total mass of the solution, including NaCl."),
+                    allow_retry = TRUE,
+                    random_answer_order = TRUE),
+     question_radio("What is the mole fraction of sodium chloride?",
+                    # `r signif(30/58.44/(500/18.02 + 30/58.44), 2)`
+                    answer("0.018 mol NaCl/mol solution", correct = TRUE),
+                    # `r signif(30/58.44/(500/18.02 + 30/58.44), 3)`
+                    answer("0.0182 mol NaCl/mol solution", message = "Don't forget sig figs"),
+                    # `r signif(30/58.44/(500/18.02), 2)`
+                    answer("0.019 mol NaCl/mol solution", message = "Make sure to divide by the total moles of the solution, including NaCl."),
+                    # `r signif(30/58.44/(500/18.02), 3)`
+                    answer("0.0185 mol NaCl/mol solution", message = "Make sure to divide by the total moles of the solution, including NaCl."), 
+                    allow_retry = TRUE,
+                    random_answer_order = TRUE
+                    ),
+     question_radio("You are designing a continuous-flow mixing device with an inlet stream of flow rate 5.0 mL/min of this salt solution. What is the molar flow rate of salt?", 
+                    # `r `signif(30/58.44/0.5 * 5, 2)`
+                    answer("5.1 mol/min", correct = TRUE),
+                    # `r signif(30/(500+30) * 5, 2)`
+                    answer("0.28 g/min", message = "molar flow rates are mol/min"),
+                    # `r signif(30/58.44/(500/18.02 + 30/58.44) * 5, 2)`
+                    answer("0.091 mol/min", message = "Oops, double check your units cancel out correctly"), 
+                    allow_retry = TRUE, 
+                    random_answer_order = TRUE,
+                    correct = paste(random_praise(), "Correct!"))
+)
+```
+
+
+One final thing about mixtures: In terms of moles or mass, a mixture is just the sum of its parts. That is if we have mole or mass fractions of components, these fractions must add up to 1 for the complete mixture. If a brine solution, like seawater, is 3% salt, it is 97% water. This fact can sometimes provide additional known (or calculable) quantities that might be necessary to solve our system. It is a good idea to go ahead and write down the calculations for these known quantities when drawing your diagrams so you don't forget that you have this information later. Mixtures are also often assumed to be less complex than they actually are. For example, our seawater from above, there are hundreds of different chemicals in seawater, but if all we are worried about in our problem is salt, we can assume it is just 3% salt and 97% water. Again, writing this information down in your flow/process diagram makes assumptions such as this very clear to you and anyone reviewing your work. Making a habit of drawing and thoroughly labeling diagrams will make you a better engineer.
 
 ## Submit
 
@@ -405,4 +558,5 @@ learnrhash::encoder_logic()
 ```{r encode, echo=FALSE}
 learnrhash::encoder_ui(ui_before = default_ui(url = "https://canvas.vt.edu/courses/135076/quizzes/314176"))
 ```
+
 

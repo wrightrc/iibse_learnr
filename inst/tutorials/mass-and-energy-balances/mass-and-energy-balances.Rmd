@@ -20,8 +20,8 @@ library(learnr)
 library(sortable)
 library(learnrhash)
 #library(interactiveBSE)
-source("../custom_learnr.R")
-#source("custom_learnr.R")
+#source("../custom_learnr.R")
+source("custom_learnr.R")
 
 #### Notes ####
 #
@@ -57,7 +57,7 @@ So for the conserved quantity of our choosing, its accumulation within the bound
 Because matter is conserved in chemical reactions---molecules can be consumed in the reaction(s) to generate new molecules but the atoms that comprise them can be neither created nor destroyed---we can write out a balance as above for each molecular species in the reaction, and this system of equations will satisfy the Law of Conservation of Mass. We start with a chemical reaction because biological systems are full of chemical reactions, but you could also think about balancing energy, forces, or momentum within a system in this way. 
 
 
-This balance based on conservation principles is also flexible because the boundaries around our system are arbitrary, they don't necessarily need to be where they are drawn around all of the Things, we can draw them wherever is convenient for solving the problem at hand. For example, if we are most interested in what is going on in Thing 4 we could also draw a system, or a sub-system, around just Thing 1 and Thing 4. 
+This balance, based on conservation principles, is also flexible because the boundaries around our system are arbitrary, they don't necessarily need to be where they are drawn around all of the Things, we can draw them wherever is convenient for solving the problem at hand. For example, if we are most interested in what is going on in Thing1 and Thing 4 we could also draw a system, or a sub-system, around just Thing 1 and Thing 4. 
 
 ![A diagram of a general system with a boundary around Thing 1 and Thing 4.](images/System2.png)
 
@@ -164,11 +164,11 @@ So in the above city example we have measured the given rates of people moving, 
 
 In this class we are mostly concerned with either integral balances or steady-state differential balances. Remember from above, at steady-state the accumulation term is zero, so this removes the derivative term, making the differential equation of our differential balance an algebraic equation. Occasionally, we will also integrate differential balances to calculate time. For example, given a flow rate into a tank calculate how long it will take to fill. 
 
-In future classes you will deal with true differential balances that allow you to derive expressions to predict the velocity and forces within moving fluids or the amount of time required for a culture of cells to reach a certain population size. 
+Later in this class and in future classes you will deal with true differential balances that allow you to derive expressions to predict the velocity and forces within moving fluids or the amount of time required for a culture of cells to reach a certain population size. 
 
 ### Some general rules for simplifying balances
 
-Going back to the algorithm for engineering calculations laid out in the previous lab we can expand a bit on steps 1 and 2 now that we have discussed deriving material balances.
+Going back to the algorithm for engineering calculations laid out in the previous section we can expand a bit on steps 1 and 2 now that we have discussed deriving material balances.
 
 1. Draw a diagram of the system of interest and label the diagram with everything you know about the problem. What quantities are given? What quantities are unknown? What units are given and asked for?  
     + Fully label every input and output stream with known variables.  
