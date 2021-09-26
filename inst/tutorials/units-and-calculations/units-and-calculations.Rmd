@@ -37,7 +37,7 @@ This module will introduce the basics of engineering calculations and tools of t
 
 At the end of this module you should be able to:
 
-- Define units and measurements and describe why the are important to engineers  
+- Define units and measurements and describe why they are important to engineers  
 - Understand and robustly perform unit conversions  
 - Use and interpret scientific notation and significant figures  
 - Outline and apply the Engineering Calculation Algorithm  
@@ -75,15 +75,20 @@ Scientific notation allows us to *usually* just count the digits in the value to
 ```{r sig-figs, echo=FALSE}
 quiz(caption = "How many significant figures are in the following measurements",
   question_numeric(text = "$2000 \\text{ kg}$", 
-                   answer(1, correct = TRUE)),
+                   answer(1, correct = TRUE), 
+                   allow_retry = TRUE),
   question_numeric(text = "$2000. \\text{ kg}$", 
-                   answer(4, correct = TRUE)),
+                   answer(4, correct = TRUE), 
+                   allow_retry = TRUE),
   question_numeric(text = "$2000.0 \\text{ kg}$", 
-                   answer(5, correct = TRUE)),
+                   answer(5, correct = TRUE), 
+                   allow_retry = TRUE),
   question_numeric(text = "$0.002 \\text{ kg}$", 
-                   answer(1, correct = TRUE)),
+                   answer(1, correct = TRUE), 
+                   allow_retry = TRUE),
   question_numeric(text = "$0.0020 \\text{ kg}$", 
-                   answer(2, correct = TRUE))
+                   answer(2, correct = TRUE), 
+                   allow_retry = TRUE)
 )
 ```
 
@@ -329,11 +334,11 @@ Step 6: Calculate. Plug in the numbers into your calculator. Don't forget signif
 
 ```{r alg-num-ans, echo=FALSE}
   #### 2
-  question_numeric(
+  question_radio(
     sprintf(
-      "So how many steps would it take for you to walk from Earth to Alpha Centauri?"
+      "So how many steps would it take for you to walk from Earth to Alpha Centauri? (Note: You have to type in all the zeros. Sorry, I will convert this to a multiple choice next year I guess.)"
     ),
-    answer(signif(4.3 * 365 * 24 * 3600 * 1.86E5 * 5280 / 2.5, 2), correct = TRUE),
+    answer(paste(signif(4.3 * 365 * 24 * 3600 * 1.86E5 * 5280 / 2.5, 2), "steps"), correct = TRUE),
     answer(signif(4.3 * 365 * 24 * 3600 * 1.86E5 * 5280 / 2.5, 3), 
            correct = FALSE, 
            message = "Double check your sig figs"), 
@@ -534,8 +539,9 @@ quiz(caption = "If you make a solution of 30. g of sodium chloride in 500. g of 
                     random_answer_order = TRUE
                     ),
      question_radio("You are designing a continuous-flow mixing device with an inlet stream of flow rate 5.0 mL/min of this salt solution. What is the molar flow rate of salt?", 
-                    # `r `signif(30/58.44/0.5 * 5, 2)`
-                    answer("5.1 mol/min", correct = TRUE),
+                    # `r `signif(30/58.44/0.5 * 5E-3 , 2)`
+                    answer("0.0051 mol/min", correct = TRUE),
+                    answer("5.1 mol/min", message = "doublecheck that you've canceled out the milli"),
                     # `r signif(30/(500+30) * 5, 2)`
                     answer("0.28 g/min", message = "molar flow rates are mol/min"),
                     # `r signif(30/58.44/(500/18.02 + 30/58.44) * 5, 2)`
