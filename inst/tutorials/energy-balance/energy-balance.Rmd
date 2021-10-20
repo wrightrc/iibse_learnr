@@ -132,11 +132,11 @@ question_numeric("How many degrees of freedom are there for this system of equat
 
 ```{r predictions}
 quiz(caption = "Given the above approximate values, what values of the hot and cold flow rates satisfy the mass and energy balances?", 
-question_numeric("Hot flow rate (g/min)?", answer(440, correct = TRUE), 
+question_numeric("Hot flow rate (kg/min)?", answer(0.44, correct = TRUE), 
                  try_again = random_encouragement(), 
                  post_message = random_praise(), 
                  allow_retry = TRUE), 
-question_numeric("Cold flow rate (g/min)?", answer(500, correct = TRUE), 
+question_numeric("Cold flow rate (kg/min)?", answer(0.50, correct = TRUE), 
                  try_again = random_encouragement(), 
                  post_message = random_praise(), 
                  allow_retry = TRUE)
