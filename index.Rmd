@@ -1,0 +1,21 @@
+---
+title: "An Interactive Introduction to Biological Systems Engineering"
+author: "R Clay Wright"
+---
+
+
+# Introduction
+
+This book has been developed as a companion for the course Intro to Biological Systems Engineers at Virginia Tech, BSE2004. It is based on many different resources from the chemical and biological engineering fields (see Additional Resources below) and aims to develop many basic skills necessary for success as a biological systems engineer. 
+
+## Description and Objectives
+
+### Course Objectives
+
+After reading this text and working associated examples and assignments, students will be able to: 
+
+
+
+
+## Additional Resources
+

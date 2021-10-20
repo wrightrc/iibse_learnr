@@ -1,0 +1,35 @@
+name: "Interactive Intro to BSE"
+navbar:
+  title: "Interactive Intro to BSE"
+  type: inverse
+  left:
+    - text: "Introduction"
+      href: intro.Rmd
+    - text: "Engineering Principles"
+      icon: fa-chevron-circle-down
+      menu:
+        - text: "Units and Calculations"
+          href: units-and-calculations.Rmd
+        - text: "Mass and Energy Balances"
+          href: mass-and-energy-balances.Rmd
+        - text: "Data and Statistics"
+          href: data-and-stats.Rmd
+    - text: "Labs"
+      icon: fa-chevron-circle-down
+      menu:
+        - text: "1 Protein Separation"
+          href: protein-separation.Rmd
+        - text: "2 Rainfall Simulator"
+          href: rainfall-simulator.Rmd
+        - text: "3 Energy Balance"
+          href: energy-balance.Rmd
+        - text: "4 Mass Flows"
+          href: mass-flows.Rmd
+        - text: "5 Cell Growth"
+          href: cell-growth.Rmd
+  right:
+    - icon: fa-envelope-o
+      href: https://piazza.com/class/ksakwdts94t37q
+    - icon: fa-github
+      href: https://www.github.com/wrightrc/interactiveBSE
+
