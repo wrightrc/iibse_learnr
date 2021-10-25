@@ -32,4 +32,8 @@ navbar:
       href: https://piazza.com/class/ksakwdts94t37q
     - icon: fa-github
       href: https://www.github.com/wrightrc/interactiveBSE
+output:
+  html_document:
+    include:
+      after_body: footer.html
 
